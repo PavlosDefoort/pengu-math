@@ -1,0 +1,123 @@
+.question {
+  /* position: relative; */
+  /* top: 200px; */
+  /* padding: auto; */
+  color: black;
+  font-size: medium;
+  /* display: flex; */
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+  margin: 5rem 0;
+}
+
+.question2 {
+  position: relative;
+  top: 600px;
+  padding: auto;
+  color: black;
+  font-size: medium;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.question4 {
+  position: relative;
+  top: 400px;
+  padding: auto;
+  color: black;
+  font-size: medium;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.correct {
+  /* top: 80px; */
+  /* position: relative; */
+  color: green;
+  font-size: large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.incorrect {
+  /* top: 80px; */
+  /* position: relative; */
+  color: red;
+  font-size: large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.userInput {
+  /* position: relative; */
+  /* top: 25px; */
+  color: blue;
+  font-size: xx-large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.prettyInput {
+  /* top: 100px; */
+  /* position: relative; */
+  font-family: "Times New Roman", Times, serif;
+  font-size: medium;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.prettySubmit {
+  color: black;
+}
+
+.toolBar {
+  color: white;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
+.calculus {
+  /* position: relative; */
+  /* top: 125px; */
+  color: black;
+  display: flex;
+  margin-top: 6rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.prettyLatex {
+  /* top: 15px; */
+  /* position: relative; */
+  font-size: xx-large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.prettyQuestion {
+  /* top: -15px; */
+  /* position: relative; */
+  font-size: xx-large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
