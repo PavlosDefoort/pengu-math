@@ -2,18 +2,21 @@
   "questions": [
     {
       "question": "$\\int_{-\\infty}^{\\infty} \\frac{1}{\\sqrt{x^{2}+4}}dx$",
-      "answer": "diverges",
-      "prompt": "Evaluate the following definite integral"
+      "answer": " diverges",
+      "prompt": "Evaluate the following definite integral",
+      "extra": "Submit 'diverges' if the integral is divergent"
     },
     {
       "question": "$\\int_{1}^{\\infty} \\frac{sin^2{x}+cos^2{x}}{x^{10}}dx$",
-      "answer": "1/9",
-      "prompt": "Evaluate the following definite integral"
+      "answer": "\\frac{1}{9}",
+      "prompt": "Evaluate the following definite integral",
+      "extra": "Submit 'diverges' if the integral is divergent"
     },
     {
       "question": "$\\int sec^4(x)tan^5(x)dx$",
-      "answer": 83.09,
-      "prompt": "Evaluate the following indefinite integral"
+      "answer": "\\frac{{ tan}^{6}~ x}{6}+\\frac{{ tan}^{8}~ x}{8}",
+      "prompt": "Evaluate the following indefinite integral",
+      "extra": "Enter your answer symbolically"
     }
   ]
 }

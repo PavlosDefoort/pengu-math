@@ -23,15 +23,8 @@ function Question({ question }) {
   }
 
   function getAnswer() {
-    const parser = math.parser();
-    parser.set("x", 2);
-
-    console.log(parser.evaluate(data));
-
-    if (
-      Math.round((parser.evaluate(data) + Number.EPSILON) * 100) / 100 ===
-      question.answer
-    ) {
+    console.log(pogChilds(data));
+    if (pogChilds(data) === question.answer) {
       setIncorrect(false);
       setAnswer(true);
       setButton(true);
@@ -45,6 +38,10 @@ function Question({ question }) {
       <h1 className="prettyQuestion">
         <Typography variant="h5">{question.prompt}</Typography>
       </h1>
+      <h7 className="prettyExtra">
+        <Typography variant="h6">{question.extra}</Typography>
+      </h7>
+
       <h1 className="prettyLatex">
         <Latex>{question.question}</Latex>
       </h1>
