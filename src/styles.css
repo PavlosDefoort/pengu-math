@@ -66,6 +66,7 @@
   margin: auto;
   justify-content: center;
   width: 100%;
+  padding-bottom: 1rem;
 }
 
 .prettyInput {
@@ -109,7 +110,7 @@
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 3rem;
 }
 
 .prettyQuestion {
@@ -120,4 +121,5 @@
   margin: auto;
   justify-content: center;
   width: 100%;
+  padding-bottom: 2rem;
 }

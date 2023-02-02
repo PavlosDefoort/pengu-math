@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/system";
+import { create, all } from "mathjs";
 
 var Latex = require("react-latex");
 
@@ -14,6 +15,7 @@ function Question({ question }) {
   const [answer, setAnswer] = useState(false);
   const [buttonBool, setButton] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
+  const math = create(all, {});
 
   function getData(val) {
     setData(val.target.value);
@@ -21,7 +23,15 @@ function Question({ question }) {
   }
 
   function getAnswer() {
-    if (data === question.answer) {
+    const parser = math.parser();
+    parser.set("x", 2);
+
+    console.log(parser.evaluate(data));
+
+    if (
+      Math.round((parser.evaluate(data) + Number.EPSILON) * 100) / 100 ===
+      question.answer
+    ) {
       setIncorrect(false);
       setAnswer(true);
       setButton(true);
@@ -29,11 +39,11 @@ function Question({ question }) {
       setIncorrect(true);
     }
   }
-  console.log(question.question);
+
   return (
     <div className="question">
       <h1 className="prettyQuestion">
-        <Typography variant="h5">Evaluate the integral</Typography>
+        <Typography variant="h5">{question.prompt}</Typography>
       </h1>
       <h1 className="prettyLatex">
         <Latex>{question.question}</Latex>
