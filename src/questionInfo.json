@@ -3,20 +3,37 @@
     {
       "question": "$\\int_{-\\infty}^{\\infty} \\frac{1}{\\sqrt{x^{2}+4}}dx$",
       "answer": " diverges",
+      "answer2": null,
       "prompt": "Evaluate the following definite integral",
       "extra": "Submit 'diverges' if the integral is divergent"
     },
     {
       "question": "$\\int_{1}^{\\infty} \\frac{sin^2{x}+cos^2{x}}{x^{10}}dx$",
       "answer": "\\frac{1}{9}",
+      "answer2": 0.111111,
       "prompt": "Evaluate the following definite integral",
       "extra": "Submit 'diverges' if the integral is divergent"
     },
     {
       "question": "$\\int sec^4(x)tan^5(x)dx$",
       "answer": "\\frac{{ tan}^{6}~ x}{6}+\\frac{{ tan}^{8}~ x}{8}",
+      "answer2": 2380.670272,
       "prompt": "Evaluate the following indefinite integral",
-      "extra": "Enter your answer symbolically"
+      "extra": "Enter your answer symbolically (Do not include +C)"
+    },
+    {
+      "question": "$\\int_{0}^{1} \\frac{sec^2{x}}{x\\sqrt{x}} dx$",
+      "answer": " diverges",
+      "answer2": null,
+      "prompt": "Use the Comparison Theorem to determine whether the integral is convergent or divergent",
+      "extra": "Enter 'diverges' or 'converges' as your answer"
+    },
+    {
+      "question": "$\\int_{1}^{\\infty} (\\frac{1}{3})^{x} dx$",
+      "answer": "\\frac{1}{3\\cdot\\mathrm{ln}\\left(3\\right)}",
+      "answer2": 0.303413,
+      "prompt": "Evaluate the following definite integral",
+      "extra": "Enter your answers symbolically"
     }
   ]
 }

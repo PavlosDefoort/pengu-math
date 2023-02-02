@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import QuizIcon from "@mui/icons-material/Quiz";
 import Box from "@mui/material/Box";
 import "@fontsource/roboto/300.css";
+import InfoIcon from "@mui/icons-material/Info";
 
 export default function App() {
   return (
@@ -17,8 +18,11 @@ export default function App() {
       <div className="App">
         <AppBar>
           <Toolbar>
-            <IconButton>
+            <IconButton onClick={() => alert("In development")}>
               <QuizIcon></QuizIcon>
+            </IconButton>
+            <IconButton onClick={() => alert("Enter ln(x) as log(x)")}>
+              <InfoIcon></InfoIcon>
             </IconButton>
             <h4 className="toolBar">
               <Typography variant="h4">PenguMath</Typography>
@@ -29,6 +33,11 @@ export default function App() {
 
         <h1 className="calculus">
           <Typography variant="h2">MATH 1ZB3 Test 1</Typography>
+        </h1>
+        <h1 className="quizInfo">
+          <Typography variant="h6">
+            Click the info icon for more on symbolic answers
+          </Typography>
         </h1>
 
         {/* <h2 className="question">

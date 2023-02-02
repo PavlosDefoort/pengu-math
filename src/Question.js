@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/system";
+import { create, all } from "mathjs";
 
 var Latex = require("react-latex");
 
@@ -14,6 +15,8 @@ function Question({ question }) {
   const [answer, setAnswer] = useState(false);
   const [buttonBool, setButton] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
+  const math = create(all, {});
+  const parser = math.parser();
 
   function getData(val) {
     setData(val.target.value);
@@ -21,12 +24,27 @@ function Question({ question }) {
   }
 
   function getAnswer() {
-    if (pogChilds(data) === question.answer) {
-      setIncorrect(false);
-      setAnswer(true);
-      setButton(true);
+    parser.set("x", 5);
+    if (question.answer2 != null) {
+      if (
+        pogChilds(data) === question.answer ||
+        Math.round(parser.evaluate(data) * 1000000) / 1000000 ==
+          question.answer2
+      ) {
+        setIncorrect(false);
+        setAnswer(true);
+        setButton(true);
+      } else {
+        setIncorrect(true);
+      }
     } else {
-      setIncorrect(true);
+      if (pogChilds(data) === question.answer) {
+        setIncorrect(false);
+        setAnswer(true);
+        setButton(true);
+      } else {
+        setIncorrect(true);
+      }
     }
   }
 
