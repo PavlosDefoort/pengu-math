@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/system";
-import { create, all } from "mathjs";
 
 var Latex = require("react-latex");
 
@@ -15,7 +14,6 @@ function Question({ question }) {
   const [answer, setAnswer] = useState(false);
   const [buttonBool, setButton] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
-  const math = create(all, {});
 
   function getData(val) {
     setData(val.target.value);
@@ -23,7 +21,6 @@ function Question({ question }) {
   }
 
   function getAnswer() {
-    console.log(pogChilds(data));
     if (pogChilds(data) === question.answer) {
       setIncorrect(false);
       setAnswer(true);
@@ -76,7 +73,7 @@ function Question({ question }) {
             color="primary"
             disabled={buttonBool}
           >
-            Submits
+            Submit
           </Button>
         </h1>
       </div>
