@@ -12,6 +12,13 @@
   text-align: center;
 }
 
+.page {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+}
+
 .question2 {
   position: relative;
   top: 600px;
@@ -34,6 +41,12 @@
   margin: auto;
   justify-content: center;
   width: 100%;
+}
+
+.fab {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
 }
 
 .correct {
