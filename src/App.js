@@ -75,11 +75,12 @@ export default function App() {
           </div>
         </Container>
       </Box>
-      <h1 className="fab">
+
+      {/*<h1 className="fab">
         <Fab color="primary" aria-label="add" size="large">
           <FunctionsIcon />
         </Fab>
-      </h1>
+            </h1>*/}
     </div>
   );
 }
