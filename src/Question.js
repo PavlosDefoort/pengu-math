@@ -10,6 +10,8 @@ import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import { set } from "react-hook-form";
+import CircularProgress from "@mui/material/CircularProgress";
+import { blue } from "@mui/material/colors";
 
 var Latex = require("react-latex");
 
@@ -26,6 +28,40 @@ function Question({ question }) {
   const [open, setOpen] = useState(false);
   const [badSnack, setBadSnack] = useState(false);
   const [warning, setWarning] = useState(false);
+
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [circular, setCircular] = React.useState(false);
+  const timer = React.useRef();
+
+  const buttonSx = {
+    ...(success && {
+      bgcolor: blue[500],
+      "&:hover": {
+        bgcolor: blue[700],
+      },
+    }),
+  };
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
+
+  const handleButtonClick = () => {
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+      setCircular(true);
+      timer.current = window.setTimeout(() => {
+        setSuccess(true);
+        setLoading(false);
+        setCircular(false);
+        getAnswer();
+      }, 2000);
+    }
+  };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -59,6 +95,7 @@ function Question({ question }) {
           setAnswer(true);
           setButton(true);
           setOpen(true);
+          setLoading(true);
         } else {
           setWarning(false);
           setOpen(false);
@@ -72,6 +109,7 @@ function Question({ question }) {
           setIncorrect(false);
           setAnswer(true);
           setButton(true);
+          setLoading(true);
         } else {
           setWarning(false);
           setOpen(false);
@@ -146,15 +184,31 @@ function Question({ question }) {
             onChange={getData}
             disabled={buttonBool}
           ></TextField>
-
-          <Button
-            onClick={getAnswer}
-            variant="contained"
-            color="primary"
-            disabled={buttonBool}
-          >
-            Submit
-          </Button>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ m: 1, position: "absolute" }}>
+              <Button
+                variant="contained"
+                sx={buttonSx}
+                disabled={loading}
+                onClick={handleButtonClick}
+              >
+                SUBMIT
+              </Button>
+              {circular && (
+                <CircularProgress
+                  size={24}
+                  sx={{
+                    color: blue[500],
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    marginTop: "-12px",
+                    marginLeft: "-12px",
+                  }}
+                />
+              )}
+            </Box>
+          </Box>
         </h1>
       </div>
     </div>

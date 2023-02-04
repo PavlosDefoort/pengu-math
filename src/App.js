@@ -65,10 +65,6 @@ export default function App() {
               </Typography>
             </h1>
 
-            {/* <h2 className="question">
-          <Question1 question={questionInfo.questions[0]} />
-        </h2> */}
-
             {questionInfo.questions.map((question) => (
               <Question question={question} />
             ))}
@@ -76,11 +72,11 @@ export default function App() {
         </Container>
       </Box>
 
-      {/*<h1 className="fab">
+      <h1 className="fab">
         <Fab color="primary" aria-label="add" size="large">
           <FunctionsIcon />
         </Fab>
-            </h1>*/}
+      </h1>
     </div>
   );
 }

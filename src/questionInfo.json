@@ -34,6 +34,13 @@
       "answer2": 0.303413,
       "prompt": "Evaluate the following definite integral",
       "extra": "Enter your answers symbolically"
+    },
+    {
+      "question": "$a_n = \\frac{2n^{2}}{n^{2}-16}$",
+      "answer": "2",
+      "answer2": 2,
+      "prompt": "Find the limit of the following sequence",
+      "extra": ""
     }
   ]
 }
