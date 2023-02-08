@@ -57,11 +57,39 @@
       "extra": "Enter 'true' or 'false'"
     },
     {
-      "question": "$a_{n+1} = f(a_{n})$ and $\\lim_{n\\rightarrow \\infty} a_{n} = L$",
+      "question": "",
       "answer": "false",
       "answer2": null,
-      "prompt": "Assuming the limit exists, find the limit of the sequence given by: ",
+      "prompt": "A series which is increasing, negative, and continous for the entire domain defintely diverges ",
       "extra": "Enter 'true' or 'false'"
+    },
+    {
+      "question": "$a_{n} = 1 + \\sqrt{\\frac{1}{1+a_{n-1}}}$",
+      "answer": "1.414214",
+      "answer2": 1.414214,
+      "prompt": "Assuming the limit exits, find the limit of the following recursive sequence: ",
+      "extra": "Enter your answer symbolically"
+    },
+    {
+      "question": "$\\sum_{n=1}^{\\infty} sec ({\\frac{\\sqrt{n+2}-3}{n-7}})-1$",
+      "answer": "true",
+      "answer2": null,
+      "prompt": "Use the divergence test on the following series",
+      "extra": "Enter 'false' if it fails the divergence test, and 'true' if it passes it"
+    },
+    {
+      "question": "$\\sum_{n=2}^{\\infty} \\frac{1}{x^{2}-4}$",
+      "answer": "false",
+      "answer2": null,
+      "prompt": "If applicable, use the integral test on the following series",
+      "extra": "Enter 'false' if it fails the integral test, and 'true' if it passes it"
+    },
+    {
+      "question": "$\\int_{0}^{2} \\frac{x^{2}-4}{\\sqrt{x}}$",
+      "answer": "-9.05096679919",
+      "answer2": -9.050967,
+      "prompt": "Evaluate the following definite integral",
+      "extra": "Enter your answer symbolically"
     }
   ]
 }
