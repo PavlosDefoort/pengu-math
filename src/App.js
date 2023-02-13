@@ -20,6 +20,7 @@ import Accordion from "@mui/material/Accordion";
 import CircularProgress from "@mui/material/CircularProgress";
 import ValidateAnswer from "./ValidateAnswer";
 import Snacks from "./Snacks";
+import pogChilds from "./pogChilds";
 
 const darkTheme = createTheme({
   palette: {
@@ -50,7 +51,7 @@ export default function App() {
                   <InfoIcon></InfoIcon>
                 </IconButton>
                 <h4 className="toolBar">
-                  <Typography variant="h4">PenguMath</Typography>
+                  <Typography variant="h4"> PenguMath</Typography>
                 </h4>
                 <Button>Login</Button>
               </Toolbar>

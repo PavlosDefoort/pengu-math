@@ -28,10 +28,29 @@ function Question({ question }) {
   const [open, setOpen] = useState(false);
   const [badSnack, setBadSnack] = useState(false);
   const [warning, setWarning] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [circular, setCircular] = useState(false);
+  const [showAnswer, setShow] = useState(false);
+  const [showCorrect, setShowCorrect] = useState(false);
 
-  const [loading, setLoading] = React.useState(false);
-  const [success, setSuccess] = React.useState(false);
-  const [circular, setCircular] = React.useState(false);
+  React.useEffect(() => {
+    // Retrieve the value from local storage
+    const storedValue = localStorage.getItem(question.submission);
+
+    if (storedValue == "true") {
+      setLoading(true);
+      setShowCorrect(true);
+    } else {
+      const storedValue = localStorage.getItem(question.buttonName);
+      setLoading(JSON.parse(storedValue));
+      setShow(JSON.parse(storedValue));
+    }
+
+    //console.log(JSON.parse(storedValue));
+    // Update the state with the retrieved value
+  }, []); // The empty array ensures that the effect only runs on mount
+
   const timer = React.useRef();
 
   const buttonSx = {
@@ -49,6 +68,22 @@ function Question({ question }) {
     };
   }, []);
 
+  function handleAttempts() {
+    // parse string in localStorage
+    let attempts = parseInt(localStorage.getItem(question.attempts) || 0);
+    attempts++;
+    // Store the updated attempts in local storage
+    localStorage.setItem(question.attempts, attempts);
+    localStorage.setItem(question.buttonName, "false");
+    if (attempts >= 3) {
+      localStorage.setItem(question.buttonName, "true");
+      setLoading(true);
+      setShow(true);
+    } else {
+    }
+    // Use the attempts value in your code
+    console.log("Number of attempts:", attempts);
+  }
   const handleButtonClick = () => {
     if (!loading) {
       setSuccess(false);
@@ -59,7 +94,7 @@ function Question({ question }) {
         setLoading(false);
         setCircular(false);
         getAnswer();
-      }, 2000);
+      }, 850);
     }
   };
 
@@ -92,14 +127,18 @@ function Question({ question }) {
           setBadSnack(false);
           setWarning(false);
           setIncorrect(false);
-          setAnswer(true);
+
           setButton(true);
           setOpen(true);
           setLoading(true);
+          setShowCorrect(true);
+          localStorage.setItem(question.submission, "true");
+          handleAttempts();
         } else {
           setWarning(false);
           setOpen(false);
           setBadSnack(true);
+          handleAttempts();
         }
       } else {
         if (pogChilds(data) === question.answer) {
@@ -107,13 +146,17 @@ function Question({ question }) {
           setWarning(false);
           setOpen(true);
           setIncorrect(false);
-          setAnswer(true);
+
+          setShowCorrect(true);
           setButton(true);
           setLoading(true);
+          localStorage.setItem(question.submission, "true");
+          handleAttempts();
         } else {
           setWarning(false);
           setOpen(false);
           setBadSnack(true);
+          handleAttempts();
         }
       }
     } catch (error) {
@@ -166,6 +209,24 @@ function Question({ question }) {
             <Latex>{"$" + pogChilds(data) + "$"}</Latex>
           </h1>
         ) : null}
+        {showAnswer ? (
+          <h4 className="solution">
+            <Typography variant="h6">
+              Answer:
+              <Latex>{" " + question.solution}</Latex>
+            </Typography>
+          </h4>
+        ) : null}
+
+        {showCorrect ? (
+          <h4 className="correct">
+            <Typography variant="h6">
+              Answer:
+              <Latex>{" " + question.solution}</Latex>
+            </Typography>
+          </h4>
+        ) : null}
+
         {answer ? (
           <h4 className="correct">
             <Typography variant="h5">Correct</Typography>

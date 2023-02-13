@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PenguMath",
+  "name": "PenguMath",
   "icons": [
     {
       "src": "favicon.ico",

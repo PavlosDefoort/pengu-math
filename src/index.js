@@ -3,12 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
-var Latex = require("react-latex");
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const fraction =
-  "Evaluate the following limit: $\\lim_{x \\to \\propto} \\sin(x)$";
 
 root.render(
   <React.StrictMode>

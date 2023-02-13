@@ -58,6 +58,21 @@
   margin: auto;
   justify-content: center;
   width: 100%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.solution {
+  /* top: 80px; */
+  /* position: relative; */
+  color: red;
+  font-size: large;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .incorrect {
@@ -135,6 +150,7 @@
   justify-content: center;
   width: 100%;
   padding-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 .prettyQuestion {
