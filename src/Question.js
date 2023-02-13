@@ -41,10 +41,12 @@ function Question({ question }) {
     if (storedValue == "true") {
       setLoading(true);
       setShowCorrect(true);
+      setButton(true);
     } else {
       const storedValue = localStorage.getItem(question.buttonName);
       setLoading(JSON.parse(storedValue));
       setShow(JSON.parse(storedValue));
+      setButton(JSON.parse(storedValue));
     }
 
     //console.log(JSON.parse(storedValue));
