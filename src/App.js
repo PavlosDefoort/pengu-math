@@ -1,10 +1,13 @@
 import Question from "./Question";
+import React, { useState } from "react";
 import "./styles.css";
+import MultipleChoice from "./MultipleChoice";
+import Dialog from "./Dialog";
 import questionInfo from "./questionInfo.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
-import { AppBar, Button } from "@mui/material";
+import { AppBar, Button, Icon } from "@mui/material";
 import { Toolbar } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import QuizIcon from "@mui/icons-material/Quiz";
@@ -18,9 +21,10 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Accordion from "@mui/material/Accordion";
 import CircularProgress from "@mui/material/CircularProgress";
-import ValidateAnswer from "./ValidateAnswer";
 import Snacks from "./Snacks";
 import pogChilds from "./pogChilds";
+import NewBar from "./NewBar";
+import Progress from "./Progress";
 
 const darkTheme = createTheme({
   palette: {
@@ -28,6 +32,10 @@ const darkTheme = createTheme({
   },
 });
 export default function App() {
+  const [score, setScore] = useState(
+    parseFloat(localStorage.getItem("score") || 0)
+  );
+
   return (
     <div className="page">
       <Box
@@ -41,37 +49,25 @@ export default function App() {
         }}
       >
         <Container maxWidth="md">
-          <div className="App">
-            <AppBar>
-              <Toolbar>
-                <IconButton onClick={() => alert("In development")}>
-                  <QuizIcon></QuizIcon>
-                </IconButton>
-                <IconButton onClick={() => alert("Enter ln(x) as log(x)")}>
-                  <InfoIcon></InfoIcon>
-                </IconButton>
-                <h4 className="toolBar">
-                  <Typography variant="h4"> PenguMath</Typography>
-                </h4>
-                <Button>Login</Button>
-              </Toolbar>
-            </AppBar>
+          <NewBar />
+          <h1 className="calculus">
+            <Typography variant="h2">Test 1: MATH 1ZB3</Typography>
+          </h1>
+          <h1 className="quizInfo">
+            <Typography variant="h5">
+              Click the info icon for more on symbolic answers
+            </Typography>
+          </h1>
 
-            <h1 className="calculus">
-              <Typography variant="h2">Test 1: MATH 1ZB3</Typography>
-            </h1>
-            <h1 className="quizInfo">
-              <Typography variant="h5">
-                Click the info icon for more on symbolic answers
-              </Typography>
-            </h1>
-
-            {questionInfo.questions.map((question) => (
-              <Question question={question} />
-            ))}
-          </div>
+          {questionInfo.questions.map((question) => (
+            <Question question={question} score={score} setScore={setScore} />
+          ))}
         </Container>
       </Box>
+      <h1 className="score">
+        <Typography variant="h6">Progress: </Typography>
+        <Progress score={score} />
+      </h1>
 
       <h1 className="fab">
         <Fab color="primary" aria-label="add" size="large">

@@ -1,0 +1,14 @@
+{
+  "buttons": [
+    {
+      "name": "Quizzes",
+      "action": "handleQuizzesButton",
+      "tool": "Practice makes perfect!"
+    },
+    {
+      "name": "Help",
+      "action": "handleCloseNavMenu",
+      "tool": "It's one click away!"
+    }
+  ]
+}

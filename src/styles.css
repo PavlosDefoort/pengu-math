@@ -43,6 +43,14 @@
   width: 100%;
 }
 
+.score {
+  position: fixed;
+  left: 3%;
+  bottom: 5%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
 .fab {
   position: fixed;
   bottom: 5rem;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import pogChilds from "./pogChilds";
 import "./styles.css";
 import Button from "@mui/material/Button";
@@ -12,6 +12,7 @@ import Stack from "@mui/material/Stack";
 import { set } from "react-hook-form";
 import CircularProgress from "@mui/material/CircularProgress";
 import { blue } from "@mui/material/colors";
+import Tooltip from "@mui/material/Tooltip";
 
 var Latex = require("react-latex");
 
@@ -19,7 +20,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-function Question({ question }) {
+function Question({ question, score, setScore }) {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [answer, setAnswer] = useState(false);
@@ -52,6 +53,10 @@ function Question({ question }) {
     //console.log(JSON.parse(storedValue));
     // Update the state with the retrieved value
   }, []); // The empty array ensures that the effect only runs on mount
+
+  React.useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
 
   const timer = React.useRef();
 
@@ -135,6 +140,8 @@ function Question({ question }) {
           setLoading(true);
           setShowCorrect(true);
           localStorage.setItem(question.submission, "true");
+          setScore(score + 7.69);
+
           handleAttempts();
         } else {
           setWarning(false);
@@ -153,6 +160,8 @@ function Question({ question }) {
           setButton(true);
           setLoading(true);
           localStorage.setItem(question.submission, "true");
+          setScore(score + 7.69);
+
           handleAttempts();
         } else {
           setWarning(false);
@@ -241,22 +250,26 @@ function Question({ question }) {
           </h4>
         ) : null}
         <h1 className="prettyInput">
-          <TextField
-            type="text"
-            label="Answer"
-            onChange={getData}
-            disabled={buttonBool}
-          ></TextField>
+          <Tooltip title="Enter your answer here">
+            <TextField
+              type="text"
+              label="Answer"
+              onChange={getData}
+              disabled={buttonBool}
+            ></TextField>
+          </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "absolute" }}>
-              <Button
-                variant="contained"
-                sx={buttonSx}
-                disabled={loading}
-                onClick={handleButtonClick}
-              >
-                SUBMIT
-              </Button>
+              <Tooltip title="Make this answer count">
+                <Button
+                  variant="contained"
+                  sx={buttonSx}
+                  disabled={loading}
+                  onClick={handleButtonClick}
+                >
+                  SUBMIT
+                </Button>
+              </Tooltip>
               {circular && (
                 <CircularProgress
                   size={24}
