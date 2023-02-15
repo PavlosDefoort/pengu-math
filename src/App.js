@@ -38,6 +38,11 @@ export default function App() {
     parseFloat(localStorage.getItem("score") || 0)
   );
 
+  const handleButtonClick = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <div className="page">
       <Box
@@ -57,7 +62,8 @@ export default function App() {
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
-              Three attempts are allowed per question!
+              Three attempts are allowed per question! To reset, click the Sigma
+              button!
             </Typography>
           </h1>
 
@@ -74,9 +80,11 @@ export default function App() {
       </h1>
 
       <h1 className="fab">
-        <Fab color="primary" aria-label="add" size="large">
-          <FunctionsIcon />
-        </Fab>
+        <Button onClick={handleButtonClick}>
+          <Fab color="primary" aria-label="add" size="large">
+            <FunctionsIcon />
+          </Fab>
+        </Button>
       </h1>
     </div>
   );
