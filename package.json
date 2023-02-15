@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "katex": "^0.16.4",
     "latex-parser": "^0.6.2",
     "mathjs": "^11.5.0",
     "mathjs-expression-parser": "^1.0.2",

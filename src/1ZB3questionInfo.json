@@ -9,7 +9,8 @@
       "extra": "Submit 'diverges' if the integral is divergent",
       "solution": "$diverges$",
       "buttonName": "b1",
-      "submission": "s1"
+      "submission": "s1",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\int_{1}^{\\infty} \\frac{sin^2{x}+cos^2{x}}{x^{10}}dx$",
@@ -20,7 +21,8 @@
       "extra": "Submit 'diverges' if the integral is divergent",
       "solution": "$\\frac{1}{9}$",
       "buttonName": "b2",
-      "submission": "s2"
+      "submission": "s2",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\int sec^4(x)tan^5(x)dx$",
@@ -31,7 +33,8 @@
       "extra": "Enter your answer symbolically (Do not include +C)",
       "solution": "$\\frac{{ tan}^{6}~ x}{6}+\\frac{{ tan}^{8}~ x}{8}$",
       "buttonName": "b3",
-      "submission": "s3"
+      "submission": "s3",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\int_{0}^{1} \\frac{sec^2{x}}{x\\sqrt{x}} dx$",
@@ -42,7 +45,8 @@
       "extra": "Enter 'diverges' or 'converges' as your answer",
       "solution": "$diverges$",
       "buttonName": "b4",
-      "submission": "s4"
+      "submission": "s4",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\int_{1}^{\\infty} (\\frac{1}{3})^{x} dx$",
@@ -53,7 +57,8 @@
       "extra": "Enter your answer symbolically",
       "solution": "$\\frac{1}{3\\ln{3}} $",
       "buttonName": "b5",
-      "submission": "s5"
+      "submission": "s5",
+      "css": "prettyLatex"
     },
     {
       "question": "$a_n = \\frac{2n^{2}}{n^{2}-16}$",
@@ -64,7 +69,8 @@
       "extra": "",
       "solution": "$2$",
       "buttonName": "b6",
-      "submission": "s6"
+      "submission": "s6",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\sum_{i=1}^{70} \\frac{2^{i-2}}{3^{i-1}}$",
@@ -75,7 +81,8 @@
       "extra": "Enter your answer symbolically",
       "solution": "$\\frac{3}{2}$",
       "buttonName": "b7",
-      "submission": "s7"
+      "submission": "s7",
+      "css": "prettyLatex"
     },
     {
       "question": "$a_{n+1} = f(a_{n})$ and $\\lim_{n\\rightarrow \\infty} a_{n} = L$",
@@ -86,7 +93,8 @@
       "extra": "Enter 'true' or 'false'",
       "solution": "$false$",
       "buttonName": "b8",
-      "submission": "s8"
+      "submission": "s8",
+      "css": "prettyLatex"
     },
     {
       "question": "",
@@ -97,7 +105,8 @@
       "extra": "Enter 'true' or 'false'",
       "solution": "$false$",
       "buttonName": "b9",
-      "submission": "s9"
+      "submission": "s9",
+      "css": "prettyLatex"
     },
     {
       "question": "$a_{n} = 1 + \\sqrt{\\frac{1}{1+a_{n-1}}}$",
@@ -108,7 +117,8 @@
       "extra": "Enter your answer symbolically",
       "solution": "$\\sqrt{2}$",
       "buttonName": "b10",
-      "submission": "s10"
+      "submission": "s10",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\sum_{n=1}^{\\infty} sec ({\\frac{\\sqrt{n+2}-3}{n-7}})-1$",
@@ -119,7 +129,8 @@
       "extra": "Enter 'false' if it fails the divergence test, and 'true' if it passes it",
       "solution": "$true$",
       "buttonName": "b11",
-      "submission": "s11"
+      "submission": "s11",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\sum_{n=2}^{\\infty} \\frac{1}{x^{2}-4}$",
@@ -130,7 +141,8 @@
       "extra": "Enter 'false' if it fails the integral test, and 'true' if it passes it",
       "solution": "$false$",
       "buttonName": "b12",
-      "submission": "s12"
+      "submission": "s12",
+      "css": "prettyLatex"
     },
     {
       "question": "$\\int_{0}^{2} \\frac{x^{2}-4}{\\sqrt{x}}$",
@@ -141,7 +153,8 @@
       "extra": "Enter your answer symbolically",
       "solution": "$\\frac{8\\sqrt{2}}{5}-8\\sqrt{2}$",
       "buttonName": "b13",
-      "submission": "s13"
+      "submission": "s13",
+      "css": "prettyLatex"
     }
   ]
 }

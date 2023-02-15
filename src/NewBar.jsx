@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
   };
 
   const handleQuizzesButton = () => {
-    alert("Quizzes");
+    alert("More quizzes are in the making!");
   };
 
   return (

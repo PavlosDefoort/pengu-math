@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/system";
-import { create, all } from "mathjs";
+import { create, all, smaller } from "mathjs";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -13,6 +13,8 @@ import { set } from "react-hook-form";
 import CircularProgress from "@mui/material/CircularProgress";
 import { blue } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
+import "katex/dist/katex.min.css";
+import katex from "katex";
 
 var Latex = require("react-latex");
 
@@ -34,6 +36,16 @@ function Question({ question, score, setScore }) {
   const [circular, setCircular] = useState(false);
   const [showAnswer, setShow] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false);
+  const latexEquation = question.prompt;
+  const renderedEquation = renderLatexEquation(latexEquation);
+
+  function renderLatexEquation(latex) {
+    try {
+      return katex.renderToString(latex, { throwOnError: false });
+    } catch (error) {
+      return latex;
+    }
+  }
 
   React.useEffect(() => {
     // Retrieve the value from local storage
@@ -140,7 +152,7 @@ function Question({ question, score, setScore }) {
           setLoading(true);
           setShowCorrect(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 7.69);
+          setScore(score + 10);
 
           handleAttempts();
         } else {
@@ -160,7 +172,7 @@ function Question({ question, score, setScore }) {
           setButton(true);
           setLoading(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 7.69);
+          setScore(score + 10);
 
           handleAttempts();
         } else {
@@ -204,14 +216,18 @@ function Question({ question, score, setScore }) {
           </Alert>
         </Snackbar>
       </Stack>
-      <h1 className="prettyQuestion">
-        <Typography variant="h5">{question.prompt}</Typography>
-      </h1>
+
+      <div className="prettyQuestion">
+        <Latex>{question.prompt}</Latex>
+      </div>
+
       <h7 className="prettyExtra">
-        <Typography variant="h6">{question.extra}</Typography>
+        <Typography sx={{ fontWeight: "bold", fontSize: 15 }}>
+          {question.extra}
+        </Typography>
       </h7>
 
-      <h1 className="prettyLatex">
+      <h1 className={question.css}>
         <Latex>{question.question}</Latex>
       </h1>
       <div className="">
@@ -237,7 +253,6 @@ function Question({ question, score, setScore }) {
             </Typography>
           </h4>
         ) : null}
-
         {answer ? (
           <h4 className="correct">
             <Typography variant="h5">Correct</Typography>
@@ -259,7 +274,7 @@ function Question({ question, score, setScore }) {
             ></TextField>
           </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ m: 1, position: "absolute" }}>
+            <Box sx={{ m: 1, position: "relative" }}>
               <Tooltip title="Make this answer count">
                 <Button
                   variant="contained"

@@ -20,6 +20,8 @@ const emails = [
   "MATH 1ZB3 Test 1",
   "MATH 1ZC3 Test 1",
   "MATH 1ZA3 Exam Review",
+  "MCV4U Vectors Review",
+  "MCV4U Calculus Review",
 ];
 
 function SimpleDialog(props) {

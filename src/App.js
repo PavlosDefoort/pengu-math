@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./styles.css";
 import MultipleChoice from "./MultipleChoice";
 import Dialog from "./Dialog";
-import questionInfo from "./questionInfo.json";
+import ZB3questionInfo from "./1ZB3questionInfo.json";
+import ZC3questionInfo from "./1ZC3questioninfo.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
@@ -25,6 +26,7 @@ import Snacks from "./Snacks";
 import pogChilds from "./pogChilds";
 import NewBar from "./NewBar";
 import Progress from "./Progress";
+import Latex from "react-latex";
 
 const darkTheme = createTheme({
   palette: {
@@ -51,16 +53,18 @@ export default function App() {
         <Container maxWidth="md">
           <NewBar />
           <h1 className="calculus">
-            <Typography variant="h2">Test 1: MATH 1ZB3</Typography>
+            <Typography variant="h2">Test 1: MATH 1ZC3</Typography>
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
-              Click the info icon for more on symbolic answers
+              Three attempts are allowed per question!
             </Typography>
           </h1>
 
-          {questionInfo.questions.map((question) => (
-            <Question question={question} score={score} setScore={setScore} />
+          {ZC3questionInfo.questions.map((question) => (
+            <h1 className="questionBorder">
+              <Question question={question} score={score} setScore={setScore} />
+            </h1>
           ))}
         </Container>
       </Box>

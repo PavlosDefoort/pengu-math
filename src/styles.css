@@ -12,6 +12,15 @@
   text-align: center;
 }
 
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  margin-top: 4rem;
+}
+
 .page {
   display: flex;
   margin: auto;
@@ -46,7 +55,7 @@
 .score {
   position: fixed;
   left: 3%;
-  bottom: 5%;
+  bottom: 4%;
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
@@ -94,6 +103,12 @@
   width: 100%;
 }
 
+.inputBorder {
+  border: 0.05rem;
+  border-style: dotted;
+  border-color: black;
+  margin-bottom: 10rem;
+}
 .userInput {
   /* position: relative; */
   /* top: 25px; */
@@ -104,12 +119,14 @@
   justify-content: center;
   width: 100%;
   padding-bottom: 1rem;
+  overflow: auto;
 }
 
 .prettyInput {
   /* top: 100px; */
   /* position: relative; */
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Computer Modern";
+  src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
   font-size: medium;
   display: flex;
   margin: auto;
@@ -161,23 +178,52 @@
   padding-top: 2rem;
 }
 
-.prettyQuestion {
-  /* top: -15px; */
+.mediumLatex {
+  /* top: 15px; */
   /* position: relative; */
-  font-size: xx-large;
+  font-size: large;
   display: flex;
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 2rem;
-  text-align: center;
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+  overflow: auto;
+}
+.questionBorder {
+  border: 0.05rem;
+  border-radius: 2rem;
+  border-style: dotted;
+  border-color: black;
+  margin-bottom: 10rem;
+  word-break: break-all;
+  white-space: "pre-wrap";
+  overflow: auto;
+}
+
+.prettyQuestion {
+  /* top: -15px; */
+  /* position: relative; */
+  display: inline-block;
+  font-size: 1.2rem !important;
+  font-family: "Computer Modern ";
+  src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
+  padding: 10px;
+
+  font-weight: lighter;
+  line-height: 1.4;
+  white-space: pre-wrap;
 }
 
 .prettyExtra {
+  font-family: "Computer Modern";
+  src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
   color: magenta;
   display: flex;
   margin: auto;
   justify-content: center;
   width: 100%;
   padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bolder;
 }
