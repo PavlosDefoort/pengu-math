@@ -14,11 +14,24 @@ import MultipleChoice from "./MultipleChoice";
 
 export default function ZC3Test1() {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("score") || 0)
+    parseFloat(localStorage.getItem("Vecscore") || 0)
   );
 
   const handleButtonClick = () => {
-    localStorage.clear();
+    localStorage.removeItem("Vecscore");
+    for (const dict of vectorsInfo.questions) {
+      for (const key in dict) {
+        if (key == "buttonName") {
+          localStorage.removeItem(dict[key]);
+        }
+        if (key == "submission") {
+          localStorage.removeItem(dict[key]);
+        }
+        if (key == "attempts") {
+          localStorage.removeItem(dict[key]);
+        }
+      }
+    }
     window.location.reload();
   };
 
@@ -54,6 +67,8 @@ export default function ZC3Test1() {
                     question={question}
                     score={score}
                     setScore={setScore}
+                    scoreFactor={25}
+                    scoreName={"Vecscore"}
                   />
                 </h1>
               );
@@ -64,6 +79,8 @@ export default function ZC3Test1() {
                     question={question}
                     score={score}
                     setScore={setScore}
+                    scoreFactor={25}
+                    scoreName={"Vecscore"}
                   />
                 </h1>
               );

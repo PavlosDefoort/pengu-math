@@ -44,7 +44,6 @@ const darkTheme = createTheme({
 export default function App() {
   return (
     <div>
-      Hello Choose a Quiz!
       <NewBar />
       <Routes>
         <Route path="/1ZC3T1" element={<ZC3T1 />} />

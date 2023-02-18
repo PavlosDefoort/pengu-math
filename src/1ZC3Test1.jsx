@@ -13,11 +13,24 @@ import Progress from "./Progress";
 
 export default function ZC3Test1() {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("score") || 0)
+    parseFloat(localStorage.getItem("1ZC3score") || 0)
   );
 
   const handleButtonClick = () => {
-    localStorage.clear();
+    localStorage.removeItem("1ZC3score");
+    for (const dict of ZC3questionInfo.questions) {
+      for (const key in dict) {
+        if (key == "buttonName") {
+          localStorage.removeItem(dict[key]);
+        }
+        if (key == "submission") {
+          localStorage.removeItem(dict[key]);
+        }
+        if (key == "attempts") {
+          localStorage.removeItem(dict[key]);
+        }
+      }
+    }
     window.location.reload();
   };
 
@@ -46,7 +59,13 @@ export default function ZC3Test1() {
 
           {ZC3questionInfo.questions.map((question) => (
             <h1 className="questionBorder">
-              <Question question={question} score={score} setScore={setScore} />
+              <Question
+                question={question}
+                score={score}
+                setScore={setScore}
+                scoreFactor={10}
+                scoreName={"1ZC3score"}
+              />
             </h1>
           ))}
         </Container>

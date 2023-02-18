@@ -18,6 +18,11 @@ export default function FadeMenu() {
     setAnchorEl(null);
   };
 
+  const handleNewQuiz = () => {
+    window.scrollTo(0, 0);
+    setAnchorEl(null);
+  };
+
   return (
     <div>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -46,13 +51,13 @@ export default function FadeMenu() {
           onClose={handleClose}
           TransitionComponent={Fade}
         >
-          <MenuItem>
+          <MenuItem onClick={handleNewQuiz}>
             <Link to={"/1ZC3T1"}>Linear Algebra Test 1</Link>
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={handleNewQuiz}>
             <Link to={"/1ZB3T1"}>Calculus II Test 1</Link>
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={handleNewQuiz}>
             <Link to={"/MCV4UVectors"}>Grade 12 Vectors</Link>
           </MenuItem>
         </Menu>

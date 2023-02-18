@@ -22,7 +22,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-function Question({ question, score, setScore }) {
+function Question({ question, score, setScore, scoreFactor, scoreName }) {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [answer, setAnswer] = useState(false);
@@ -67,7 +67,7 @@ function Question({ question, score, setScore }) {
   }, []); // The empty array ensures that the effect only runs on mount
 
   React.useEffect(() => {
-    localStorage.setItem("score", score);
+    localStorage.setItem(scoreName, score);
   }, [score]);
 
   const timer = React.useRef();
@@ -152,7 +152,7 @@ function Question({ question, score, setScore }) {
           setLoading(true);
           setShowCorrect(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 10);
+          setScore(score + scoreFactor);
         } else {
           setWarning(false);
           setOpen(false);
@@ -170,7 +170,7 @@ function Question({ question, score, setScore }) {
           setButton(true);
           setLoading(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 10);
+          setScore(score + scoreFactor);
         } else {
           setWarning(false);
           setOpen(false);

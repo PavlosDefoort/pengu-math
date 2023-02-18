@@ -3,6 +3,7 @@
     {
       "question": "$\\int_{-\\infty}^{\\infty} \\frac{1}{\\sqrt{x^{2}+4}}dx$",
       "attempts": "1zb3t1a1",
+      "answer": " diverges",
       "answer2": null,
       "prompt": "Evaluate the following definite integral",
       "extra": "Submit 'diverges' if the integral is divergent",
