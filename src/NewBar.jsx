@@ -15,7 +15,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import FunctionsIcon from "@mui/icons-material/Functions";
 import Dialog from "./Dialog";
 import buttonInfo from "./buttonInfo.json";
-
+import Fade from "@mui/material/Fade";
+import MenuClick from "./MenuClick";
 import { set } from "react-hook-form";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -44,11 +45,20 @@ function ResponsiveAppBar() {
     alert("More quizzes are in the making!");
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <AppBar>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <FunctionsIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+
           <Typography
             variant="h6"
             noWrap
@@ -127,17 +137,7 @@ function ResponsiveAppBar() {
             PenguMath
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {buttonInfo.buttons.map((page) => (
-              <Tooltip title={page.tool}>
-                <Button
-                  key={page.name}
-                  onClick={eval(page.action)}
-                  sx={{ my: 1, color: "white", display: "block" }}
-                >
-                  {page.name}
-                </Button>
-              </Tooltip>
-            ))}
+            <MenuClick />
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

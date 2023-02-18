@@ -16,13 +16,18 @@ import Tooltip from "@mui/material/Tooltip";
 import "katex/dist/katex.min.css";
 import katex from "katex";
 
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 var Latex = require("react-latex");
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-function Question({ question, score, setScore }) {
+function MCQuestion({ question, score, setScore }) {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [answer, setAnswer] = useState(false);
@@ -38,6 +43,12 @@ function Question({ question, score, setScore }) {
   const [showCorrect, setShowCorrect] = useState(false);
   const latexEquation = question.prompt;
   const renderedEquation = renderLatexEquation(latexEquation);
+
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   function renderLatexEquation(latex) {
     try {
@@ -153,6 +164,8 @@ function Question({ question, score, setScore }) {
           setShowCorrect(true);
           localStorage.setItem(question.submission, "true");
           setScore(score + 10);
+
+          handleAttempts();
         } else {
           setWarning(false);
           setOpen(false);
@@ -171,6 +184,8 @@ function Question({ question, score, setScore }) {
           setLoading(true);
           localStorage.setItem(question.submission, "true");
           setScore(score + 10);
+
+          handleAttempts();
         } else {
           setWarning(false);
           setOpen(false);
@@ -262,12 +277,20 @@ function Question({ question, score, setScore }) {
         ) : null}
         <h1 className="prettyInput">
           <Tooltip title="Enter your answer here">
-            <TextField
-              type="text"
-              label="Answer"
-              onChange={getData}
-              disabled={buttonBool}
-            ></TextField>
+            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+              <InputLabel id="demo-select-small">Answer</InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={age}
+                label="Answer"
+                onChange={handleChange}
+              >
+                <MenuItem value={10}>A</MenuItem>
+                <MenuItem value={20}>B</MenuItem>
+                <MenuItem value={30}>C</MenuItem>
+              </Select>
+            </FormControl>
           </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
@@ -302,4 +325,4 @@ function Question({ question, score, setScore }) {
   );
 }
 
-export default Question;
+export default MCQuestion;

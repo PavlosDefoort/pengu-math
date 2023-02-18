@@ -27,6 +27,14 @@ import pogChilds from "./pogChilds";
 import NewBar from "./NewBar";
 import Progress from "./Progress";
 import Latex from "react-latex";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import ZC3T1 from "./1ZC3Test1";
+import ZB3T1 from "./1ZB3Test1";
+import MCV4UVectors from "./MCV4UVectors";
+import Navigation from "./Navigation";
+import Menu from "./MenuClick";
+import Multiple from "./MultipleChoice";
+import MCQ from "./MCQuestion";
 
 const darkTheme = createTheme({
   palette: {
@@ -34,58 +42,15 @@ const darkTheme = createTheme({
   },
 });
 export default function App() {
-  const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("score") || 0)
-  );
-
-  const handleButtonClick = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
-
   return (
-    <div className="page">
-      <Box
-        sx={{
-          border: 1,
-          borderRadius: "1%",
-          backgroundColor: "#ffffff",
-          width: "75%",
-          height: "100%",
-          boxShadow: 100,
-        }}
-      >
-        <Container maxWidth="md">
-          <NewBar />
-          <h1 className="calculus">
-            <Typography variant="h2">Test 1: MATH 1ZC3</Typography>
-          </h1>
-          <h1 className="quizInfo">
-            <Typography variant="h5">
-              Three attempts are allowed per question! To reset, click the Sigma
-              button!
-            </Typography>
-          </h1>
-
-          {ZC3questionInfo.questions.map((question) => (
-            <h1 className="questionBorder">
-              <Question question={question} score={score} setScore={setScore} />
-            </h1>
-          ))}
-        </Container>
-      </Box>
-      <h1 className="score">
-        <Typography variant="h6">Progress: </Typography>
-        <Progress score={score} />
-      </h1>
-
-      <h1 className="fab">
-        <Button onClick={handleButtonClick}>
-          <Fab color="primary" aria-label="add" size="large">
-            <FunctionsIcon />
-          </Fab>
-        </Button>
-      </h1>
+    <div>
+      Hello Choose a Quiz!
+      <NewBar />
+      <Routes>
+        <Route path="/1ZC3T1" element={<ZC3T1 />} />
+        <Route path="/1ZB3T1" element={<ZB3T1 />} />
+        <Route path="/MCV4UVectors" element={<MCV4UVectors />} />
+      </Routes>
     </div>
   );
 }

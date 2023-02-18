@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.0",
     "react-latex": "^2.0.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
     "tex-math-parser": "^2.0.4",
     "web-vitals": "^2.1.4"

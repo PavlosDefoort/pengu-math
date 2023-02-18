@@ -215,6 +215,35 @@
   white-space: pre-wrap;
 }
 
+.multiplechoice {
+  font-size: 1.5rem !important;
+  font-family: "Computer Modern ";
+  src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
+  list-style-type: none;
+  margin-bottom: 4rem;
+  margin-left: 1.1rem;
+}
+
+.eachChoice {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.2rem;
+}
+
+.choiceLetter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  padding-right: 1.2rem;
+  font-weight: bold;
+}
+
+.choiceText {
+  display: flex;
+  align-items: center;
+}
+
 .prettyExtra {
   font-family: "Computer Modern";
   src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");

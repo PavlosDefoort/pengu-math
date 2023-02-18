@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "question": "",
+      "attempts": "vecattemp1",
+      "answer": "2sqrt(10)",
+      "answer2": 6.324555,
+      "prompt": "Determine the $\\small \\textbf{magnitude}$ of the vector represented by the coordinates $(4,7)$ and $(-2,5)$.",
+      "extra": "Enter your answer symbolically",
+      "solution": "$2\\sqrt{10}$",
+      "buttonName": "vecb1",
+      "submission": "vecs1",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$\\small \\vec{u} = \\begin{bmatrix}2\\\\-3\\\\5\\end{bmatrix},\\vec{v}= \\begin{bmatrix}-4\\\\1\\\\-2\\end{bmatrix}$",
+      "attempts": "vecattemp2",
+      "answer": "-21",
+      "answer2": -21,
+      "prompt": "Calculate the $\\small\\textbf{dot product}$ of the following vectors",
+      "extra": "",
+      "solution": "$-21$",
+      "buttonName": "vecb2",
+      "submission": "vecs2",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$\\small \\vec{u} = \\begin{bmatrix}1\\\\3\\\\2\\end{bmatrix}, \\vec{v} = \\begin{bmatrix}2\\\\-1\\\\4\\end{bmatrix}$",
+      "attempts": "vecattemp3",
+      "answer": "65.9",
+      "answer2": 65.9,
+      "prompt": "Find the $\\small \\textbf{angle in degrees}$ between the following vectors:",
+      "extra": "Round to the nearest tenth (one decimal place). Do NOT include the degrees symbol",
+      "solution": "$65.9^\\circ$",
+      "buttonName": "vecb3",
+      "submission": "vecs3",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+
+    {
+      "question": "$\\small \\vec{v} = \\begin{bmatrix}2\\\\-1\\\\4\\end{bmatrix}$",
+      "attempts": "vecattem4p",
+      "answer": 10,
+      "prompt": "Find a $\\small \\textbf{unit vector}$ in the direction of $\\small \\boldsymbol{\\vec{v}}$.",
+      "extra": "",
+      "solution": "$\\begin{pmatrix}\\frac{2}{\\sqrt{21}} & \\frac{-4}{\\sqrt{21}} & \\frac{1}{\\sqrt{21}}\\end{pmatrix}$",
+      "buttonName": "vecb4",
+      "submission": "vecs4",
+      "css": "prettyLatex",
+      "type": "multiplechoice",
+      "A": "$\\begin{pmatrix}\\frac{2}{\\sqrt{21}} & \\frac{-4}{\\sqrt{21}} & \\frac{1}{\\sqrt{21}}\\end{pmatrix}$",
+      "B": "$\\begin{pmatrix}\\frac{2}{\\sqrt{21}} & \\frac{4}{\\sqrt{21}} & \\frac{1}{\\sqrt{21}}\\end{pmatrix}$",
+      "C": "$\\begin{pmatrix}\\frac{2}{\\sqrt{22}} & \\frac{4}{\\sqrt{22}} & \\frac{1}{\\sqrt{22}}\\end{pmatrix}$",
+      "D": "$\\begin{pmatrix}\\frac{2}{\\sqrt{-21}} & \\frac{-4}{\\sqrt{-21}} & \\frac{1}{\\sqrt{-21}}\\end{pmatrix}$",
+      "E": "$\\begin{pmatrix}\\frac{2}{\\sqrt{21}} & \\frac{-4}{\\sqrt{21}} & \\frac{-1}{\\sqrt{21}}\\end{pmatrix}$"
+    }
+  ]
+}
