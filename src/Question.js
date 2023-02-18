@@ -136,6 +136,7 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
 
   function getAnswer() {
     parser.set("x", 5);
+    console.log(Math.round(parser.evaluate(data) * 1000000) / 1000000);
     try {
       if (question.answer2 != null) {
         if (

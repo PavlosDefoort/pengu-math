@@ -109,7 +109,7 @@ function ResponsiveAppBar() {
               }}
             >
               {buttonInfo.buttons.map((page) => (
-                <MenuItem key={page.name} onClick={eval(page.action)}>
+                <MenuItem key={page.name} onClick={handleQuizzesButton}>
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}

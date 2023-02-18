@@ -1,7 +1,7 @@
 import Question from "./Question";
 import React, { useState } from "react";
 import "./styles.css";
-import vectorsInfo from "./MCV4UVectorsquestionInfo.json";
+import pracInfo from "./Practice.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
@@ -12,14 +12,14 @@ import Fab from "@mui/material/Fab";
 import Progress from "./Progress";
 import MultipleChoice from "./MultipleChoice";
 
-export default function VectorsTest() {
+export default function PractiseTest() {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("Vecscore") || 0)
+    parseFloat(localStorage.getItem("pracscore") || 0)
   );
 
   const handleButtonClick = () => {
-    localStorage.removeItem("Vecscore");
-    for (const dict of vectorsInfo.questions) {
+    localStorage.removeItem("pracscore");
+    for (const dict of pracInfo.questions) {
       for (const key in dict) {
         if (key == "buttonName") {
           localStorage.removeItem(dict[key]);
@@ -49,16 +49,15 @@ export default function VectorsTest() {
       >
         <Container maxWidth="md">
           <h1 className="calculus">
-            <Typography variant="h2">Review: Grade 12 Vectors</Typography>
+            <Typography variant="h2">Syntax Practice</Typography>
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
-              Three attempts are allowed per question! To reset, click the Sigma
-              button!
+              A new student, that's great! Here you will learn the ropes!
             </Typography>
           </h1>
 
-          {vectorsInfo.questions.map((question) => {
+          {pracInfo.questions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (
@@ -67,8 +66,8 @@ export default function VectorsTest() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"Vecscore"}
+                    scoreFactor={16.66}
+                    scoreName={"pracscore"}
                   />
                 </h1>
               );
@@ -79,8 +78,8 @@ export default function VectorsTest() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"Vecscore"}
+                    scoreFactor={16.66}
+                    scoreName={"pracscore"}
                   />
                 </h1>
               );

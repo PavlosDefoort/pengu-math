@@ -60,6 +60,9 @@ export default function FadeMenu() {
           <MenuItem onClick={handleNewQuiz}>
             <Link to={"/MCV4UVectors"}>Grade 12 Vectors</Link>
           </MenuItem>
+          <MenuItem onClick={handleNewQuiz}>
+            <Link to={"/practice"}>Syntax Practice</Link>
+          </MenuItem>
         </Menu>
       </Box>
     </div>

@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "question": "",
+      "attempts": "pracattempt1",
+      "answer": "\\frac{3}{4}",
+      "answer2": 0.75,
+      "prompt": "When possible,$\\small \\textbf { enter your answers symbollically}$ (exact values such as fractions and radicals). \nTry entering 3/4 as $\\boldsymbol{\\frac{3}{4}}$",
+      "extra": "The '/' key will turn your answer into a fraction. Enter '3/4'",
+      "solution": "$3/4$",
+      "buttonName": "pracb1",
+      "submission": "pracs1",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "",
+      "attempts": "pracattempt2",
+      "answer": "\\sqrt{3}",
+      "answer2": 1.73205,
+      "prompt": "Let's do the symbollic thingy again, but with $\\small \\textbf{radicals}$!\nTry entering the square root of 3 as $\\boldsymbol{\\sqrt{3}}$",
+      "extra": "The 'sqrt()' function will square root what ever is in the brackets. Enter 'sqrt(3)'",
+      "solution": "$sqrt(3)$",
+      "buttonName": "pracb2",
+      "submission": "pracs2",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$\\frac{\\sqrt{2} +2}{\\sqrt{2} -3}$",
+      "attempts": "pracattempt3",
+      "answer": "\\frac{\\sqrt{2} +2}{\\sqrt{2} -3}",
+      "answer2": -2.15301,
+      "prompt": "Now let's get more complex and create the fractional expression below!\nAdd $\\small \\textbf{brackets}$ around the $\\small \\textbf{entire numerator and denominator}$.",
+      "extra": "This one would be entered as (sqrt(2)+2)/(sqrt(2)-3)",
+      "solution": "$(sqrt(2)+2)/(sqrt(2)-3)$",
+      "buttonName": "pracb3",
+      "submission": "pracs3",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$7^{12}$",
+      "attempts": "pracattempt4",
+      "answer": "",
+      "answer2": 13841287201,
+      "prompt": "Sometimes in math, numbers get too big. We have a quick way to express them with $\\small \\textbf{exponents}$!",
+      "extra": "The ^ operator will raise to whatever immediately follows. Enter 7^12",
+      "solution": "7^12",
+      "buttonName": "pracb4",
+      "submission": "pracs4",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$8^{\\frac{2\\sqrt{7}}{9}}$",
+      "attempts": "pracattempt5",
+      "answer": "",
+      "answer2": 3.395995,
+      "prompt": "Exponents can get $\\small \\textbf{really messy}$.\nThis does NOT mean we'll just forget about them!",
+      "extra": "Add brackets around the exponent. Enter 8^((2sqrt(7))/9)",
+      "solution": "8^((2sqrt(7))/9)",
+      "buttonName": "pracb5",
+      "submission": "pracs5",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "$9^{-{\\frac{\\sqrt{2}}{\\sqrt{5}}}} + \\frac{8^{12}}{2\\sqrt{3}}$",
+      "attempts": "pracattempt6",
+      "answer": "",
+      "answer2": 19837604196.29908,
+      "prompt": "In this one, you'll have $\\small \\textbf{no hints}$. \nPut together $\\small \\textbf{everything}$ you have learned so far!",
+      "extra": "    A challange at hand!",
+      "solution": "9^-(sqrt(2)/sqrt(5))+((8^12)/(2sqrt(3)))",
+      "buttonName": "pracb6",
+      "submission": "pracs6",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    }
+  ]
+}

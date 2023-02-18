@@ -37,6 +37,7 @@ import Menu from "./MenuClick";
 import Multiple from "./MultipleChoice";
 import MCQ from "./MCQuestion";
 import { blue } from "@mui/material/colors";
+import PractiseTest from "./PracticeTest";
 
 const darkTheme = createTheme({
   palette: {
@@ -52,6 +53,7 @@ export default function App() {
         <Route path="/1ZC3T1" element={<ZC3T1 />} />
         <Route path="/1ZB3T1" element={<ZB3T1 />} />
         <Route path="/MCV4UVectors" element={<MCV4UVectors />} />
+        <Route path="/practice" element={<PractiseTest />} />
       </Routes>
     </div>
   );
