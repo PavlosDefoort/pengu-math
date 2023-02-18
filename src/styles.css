@@ -12,6 +12,13 @@
   text-align: center;
 }
 
+.intro {
+}
+
+.introSub {
+  color: blue;
+}
+
 .center-screen {
   display: flex;
   justify-content: center;

@@ -31,10 +31,12 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import ZC3T1 from "./1ZC3Test1";
 import ZB3T1 from "./1ZB3Test1";
 import MCV4UVectors from "./MCV4UVectors";
+import Home from "./Home";
 import Navigation from "./Navigation";
 import Menu from "./MenuClick";
 import Multiple from "./MultipleChoice";
 import MCQ from "./MCQuestion";
+import { blue } from "@mui/material/colors";
 
 const darkTheme = createTheme({
   palette: {
@@ -46,6 +48,7 @@ export default function App() {
     <div>
       <NewBar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/1ZC3T1" element={<ZC3T1 />} />
         <Route path="/1ZB3T1" element={<ZB3T1 />} />
         <Route path="/MCV4UVectors" element={<MCV4UVectors />} />
