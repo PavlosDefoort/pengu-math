@@ -1,7 +1,7 @@
 import Question from "./Question";
 import React, { useState } from "react";
 import "./styles.css";
-import vectorsInfo from "./MCV4UVectorsquestionInfo.json";
+import ZA3T2Info from "./1ZA3T2questioninfo.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
@@ -12,14 +12,14 @@ import Fab from "@mui/material/Fab";
 import Progress from "./Progress";
 import MultipleChoice from "./MultipleChoice";
 
-export default function VectorsTest() {
+export default function Calc1Test2() {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("Vecscore") || 0)
+    parseFloat(localStorage.getItem("1za3t2score") || 0)
   );
 
   const handleButtonClick = () => {
-    localStorage.removeItem("Vecscore");
-    for (const dict of vectorsInfo.questions) {
+    localStorage.removeItem("1za3t2score");
+    for (const dict of ZA3T2Info.questions) {
       for (const key in dict) {
         if (key == "buttonName") {
           localStorage.removeItem(dict[key]);
@@ -49,7 +49,7 @@ export default function VectorsTest() {
       >
         <Container maxWidth="md">
           <h1 className="calculus">
-            <Typography variant="h2">Review: Grade 12 Vectors</Typography>
+            <Typography variant="h2">Calculus I: Test 2</Typography>
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
@@ -59,12 +59,14 @@ export default function VectorsTest() {
           </h1>
           <h1 className="topicsCovered">
             <Typography variant="subtitle1">
-              Topics covered: Magnitude, unit vectors, angles, dot product,
-              cross product, triple scalar product
+              Topics covered: Implicit/explicit integration, differential
+              applications in optimization, critical points, intervals of
+              concavity/increase/decrease, L'Hospital's Rule, Mean Value
+              Theorem, and hyperbolic functions
             </Typography>
           </h1>
 
-          {vectorsInfo.questions.map((question) => {
+          {ZA3T2Info.questions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (
@@ -74,7 +76,7 @@ export default function VectorsTest() {
                     score={score}
                     setScore={setScore}
                     scoreFactor={25}
-                    scoreName={"Vecscore"}
+                    scoreName={"1za3t2score"}
                   />
                 </h1>
               );
@@ -86,7 +88,7 @@ export default function VectorsTest() {
                     score={score}
                     setScore={setScore}
                     scoreFactor={25}
-                    scoreName={"Vecscore"}
+                    scoreName={"1za3t2score"}
                   />
                 </h1>
               );

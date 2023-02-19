@@ -123,7 +123,7 @@ export default function SelectSmall({
 
   function getAnswer() {
     console.log(userAnswer);
-    if (userAnswer == 10) {
+    if (userAnswer == question.answer) {
       setBadSnack(false);
       setWarning(false);
       setIncorrect(false);

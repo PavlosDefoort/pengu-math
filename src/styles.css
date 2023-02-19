@@ -171,6 +171,15 @@
   text-align: center;
 }
 
+.topicsCovered {
+  display: flex;
+  color: red;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
 .prettyLatex {
   /* top: 15px; */
   /* position: relative; */
