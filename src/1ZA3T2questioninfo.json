@@ -47,7 +47,7 @@
       "question": "$\\lim_{x\\rightarrow \\infty} (\\frac{e^{x}}{\\ln{x}})$",
       "attempts": "calc1t2attempt4",
       "answer": 30,
-      "prompt": "$\\small \\textbf{Evalute}$ the following $\\small \\textbf{limit}$",
+      "prompt": "$\\small \\textbf{Evaluate}$ the following $\\small \\textbf{limit}$",
       "extra": "",
       "solution": "$-\\infty$",
       "buttonName": "calc1t2b4",
@@ -78,7 +78,7 @@
       "E": "$\\frac{1+\\sec^{2}({2^{x}})\\cdot2^{x}\\ln({2})}{x^2}$"
     },
     {
-      "question": "$\\begin{cases} x^{3} + 2x^{2} -5 & 0 \\leq x < 5 \\\\ \\frac{1}{x^{2}} & 5 \\leq x \\end{cases}$",
+      "question": "$f(x) = \\begin{cases} x^{3} + 2x^{2} -5 & 0 \\leq x < 5 \\\\ \\frac{1}{x^{2}} & 5 \\leq x \\end{cases}$",
       "attempts": "calc1t2attempt6",
       "answer": 50,
       "prompt": "At what point $(x,y)$ does the following $\\small \\textbf{piecewise function}$ have an $\\small \\textbf{absolute minimum}$?",
@@ -140,6 +140,40 @@
       "C": "$\\left\\{\\begin{matrix}-\\infty<x<0\\\\0<x<16 \\\\ 16<x<\\infty \\end{matrix}\\right.$",
       "D": "$None$",
       "E": "$-\\infty < x < \\infty$"
+    },
+    {
+      "question": "",
+      "attempts": "calc1t2attempt10",
+      "answer": 20,
+      "prompt": "A farmer with $\\small \\textbf{750 ft}$ of fencing wants to enclose a $\\small \\textbf{rectangular area}$ and then divide it into $\\small \\textbf{four pens}$ with fencing parallel to one side of the rectangle. Write an $\\small \\textbf{expression}$ for the $\\small \\textbf{total area}$ of the fence in terms of $\\small \\boldsymbol{x}$.",
+      "extra": "",
+      "solution": "$A=\\frac{-2x^{2}+750x}{5}$",
+      "buttonName": "calc1t2b10",
+      "submission": "calc1t2b10",
+      "css": "prettyLatex",
+      "type": "multiplechoice",
+      "A": "$A=\\frac{2x^{2}+750x}{4}$",
+      "B": "$A=\\frac{-2x^{2}+750x}{5}$",
+      "C": "$A=\\frac{-2x^{2}+750x}{4}$",
+      "D": "$A=\\frac{2x^{2}+750x}{5}$",
+      "E": "$A=\\frac{2x^{2}+750x}{3}$"
+    },
+    {
+      "question": "$f(x) = \\frac{1}{\\ln{x}}$",
+      "attempts": "calc1t2attempt11",
+      "answer": 20,
+      "prompt": "Find the intervals of $\\small \\textbf{downwards concanvity}$ of $\\small \\boldsymbol{f(x)}$.",
+      "extra": "",
+      "solution": "$\\left\\{\\begin{matrix}\\frac{1}{e^{2}} < x < 1 \\end{matrix}\\right.$",
+      "buttonName": "calc1t2b11",
+      "submission": "calc1t2b11",
+      "css": "prettyLatex",
+      "type": "multiplechoice",
+      "A": "$\\left\\{\\begin{matrix}0 < x < \\frac{1}{e^{2}}\\\\\\frac{1}{e^{2}} < x < 1 \\\\ 1 < x < \\infty \\end{matrix}\\right.$",
+      "B": "$\\left\\{\\begin{matrix}\\frac{1}{e^{2}} < x < 1 \\end{matrix}\\right.$",
+      "C": "$\\left\\{\\begin{matrix}0 < x < \\frac{1}{e^{2}}\\\\ 1 < x < \\infty \\end{matrix}\\right.$",
+      "D": "$None$",
+      "E": "$\\{xe\\mathbb{R}\\}$"
     }
   ]
 }

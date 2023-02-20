@@ -15,6 +15,7 @@ import { blue } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
 import "katex/dist/katex.min.css";
 import katex from "katex";
+import parallelgroam from "./volume_parallelepiped.png";
 
 var Latex = require("react-latex");
 
@@ -38,6 +39,8 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
   const [showCorrect, setShowCorrect] = useState(false);
   const latexEquation = question.prompt;
   const renderedEquation = renderLatexEquation(latexEquation);
+
+  //const imageURL = question.image}
 
   function renderLatexEquation(latex) {
     try {
@@ -225,6 +228,9 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
 
       <h1 className={question.css}>
         <Latex>{question.question}</Latex>
+        <div>
+          <img src={question.image} />
+        </div>
       </h1>
       <div className="">
         {print ? (
@@ -271,16 +277,15 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
           </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
-              <Tooltip title="Make this answer count">
-                <Button
-                  variant="contained"
-                  sx={buttonSx}
-                  disabled={loading}
-                  onClick={handleButtonClick}
-                >
-                  SUBMIT
-                </Button>
-              </Tooltip>
+              <Button
+                variant="contained"
+                sx={buttonSx}
+                disabled={loading}
+                onClick={handleButtonClick}
+              >
+                SUBMIT
+              </Button>
+
               {circular && (
                 <CircularProgress
                   size={24}

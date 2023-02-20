@@ -2,6 +2,7 @@
   "questions": [
     {
       "question": "",
+      "image": "",
       "attempts": "vecattemp1",
       "answer": "2sqrt(10)",
       "answer2": 6.324555,
@@ -14,7 +15,8 @@
       "type": "shortanswer"
     },
     {
-      "question": "$\\small \\vec{u} = \\begin{bmatrix}2\\\\-3\\\\5\\end{bmatrix},\\vec{v}= \\begin{bmatrix}-4\\\\1\\\\-2\\end{bmatrix}$",
+      "question": "$\\small \\vec{u} = \\begin{bmatrix}2\\\\-3\\\\5\\end{bmatrix},\\,\\vec{v}= \\begin{bmatrix}-4\\\\1\\\\-2\\end{bmatrix}$",
+      "image": "",
       "attempts": "vecattemp2",
       "answer": "-21",
       "answer2": -21,
@@ -27,7 +29,8 @@
       "type": "shortanswer"
     },
     {
-      "question": "$\\small \\vec{u} = \\begin{bmatrix}1\\\\3\\\\2\\end{bmatrix}, \\vec{v} = \\begin{bmatrix}2\\\\-1\\\\4\\end{bmatrix}$",
+      "question": "$\\small \\vec{u} = \\begin{bmatrix}1\\\\3\\\\2\\end{bmatrix},\\, \\vec{v} = \\begin{bmatrix}2\\\\-1\\\\4\\end{bmatrix}$",
+      "image": "",
       "attempts": "vecattemp3",
       "answer": "65.9",
       "answer2": 65.9,
@@ -42,6 +45,7 @@
 
     {
       "question": "$\\small \\vec{v} = \\begin{bmatrix}2\\\\-1\\\\4\\end{bmatrix}$",
+      "image": "",
       "attempts": "vecattem4p",
       "answer": 10,
       "prompt": "Find a $\\small \\textbf{unit vector}$ in the direction of $\\small \\boldsymbol{\\vec{v}}$.",
@@ -56,6 +60,53 @@
       "C": "$\\begin{pmatrix}\\frac{2}{\\sqrt{22}} & \\frac{4}{\\sqrt{22}} & \\frac{1}{\\sqrt{22}}\\end{pmatrix}$",
       "D": "$\\begin{pmatrix}\\frac{2}{\\sqrt{-21}} & \\frac{-4}{\\sqrt{-21}} & \\frac{1}{\\sqrt{-21}}\\end{pmatrix}$",
       "E": "$\\begin{pmatrix}\\frac{2}{\\sqrt{21}} & \\frac{-4}{\\sqrt{21}} & \\frac{-1}{\\sqrt{21}}\\end{pmatrix}$"
+    },
+
+    {
+      "question": "$\\small \\vec{a} = \\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix},\\,\\vec{b} = \\begin{bmatrix}3\\\\2\\\\1\\end{bmatrix},\\,\\vec{c} = \\begin{bmatrix}4\\\\5\\\\6\\end{bmatrix}$",
+      "image": "",
+      "attempts": "vecattem5p",
+      "answer": 30,
+      "prompt": "Are the following vectors $\\small \\textbf{coplanar}$?",
+      "extra": "",
+      "solution": "$\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0  \\, \\therefore \\text{coplanar}$",
+      "buttonName": "vecb5",
+      "submission": "vecs5",
+      "css": "prettyLatex",
+      "type": "multiplechoice",
+      "A": "$\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0  \\, \\therefore \\text{non-coplanar}$",
+      "B": "$\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) \\neq 0  \\, \\therefore \\text{coplanar}$",
+      "C": "$\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) = 0  \\, \\therefore \\text{coplanar}$",
+      "D": "$\\vec{a} \\cdot (\\vec{b} \\times \\vec{c}) \\neq 0  \\, \\therefore \\text{non-coplanar}$",
+      "E": "$$\\vec{a} \\times (\\vec{b} \\times \\vec{c}) = 0  \\, \\therefore \\text{coplanar}$$"
+    },
+    {
+      "question": "",
+      "image": "",
+      "attempts": "vecattemp6",
+      "answer": "25,36.9",
+      "answer2": null,
+      "prompt": "Two forces act on an object, one with a magnitude of $\\footnotesize \\textbf{20 newtons directly east}$, and another with a magnitude of $\\footnotesize \\textbf{15 newtons directly north}$. What is the $\\footnotesize \\textbf{magnitude}$ and $\\footnotesize \\textbf{direction}$ of the resultant force acting on the object? Round the angle to one decimal place (relative to the positive x-axis) and round the magnitude to the nearest newton.",
+      "extra": "Enter your answer as 'magnitude,angle' (e.g. 15,63.3) no spaces",
+      "solution": "$25N [36.9\\degree NE]$",
+      "buttonName": "vecb6",
+      "submission": "vecs6",
+      "css": "prettyLatex",
+      "type": "shortanswer"
+    },
+    {
+      "question": "",
+      "image": "",
+      "attempts": "vecattemp7",
+      "answer": "25,36.9",
+      "answer2": null,
+      "prompt": "Two forces act on an object, one with a magnitude of $\\footnotesize \\textbf{20 newtons directly east}$, and another with a magnitude of $\\footnotesize \\textbf{15 newtons directly north}$. What is the $\\footnotesize \\textbf{magnitude}$ and $\\footnotesize \\textbf{direction}$ of the resultant force acting on the object? Round the angle to one decimal place (relative to the positive x-axis) and round the magnitude to the nearest newton.",
+      "extra": "Enter your answer as 'magnitude,angle' (e.g. 15,63.3) no spaces",
+      "solution": "$25N [36.9\\degree NE]$",
+      "buttonName": "vecb7",
+      "submission": "vecs7",
+      "css": "prettyLatex",
+      "type": "shortanswer"
     }
   ]
 }

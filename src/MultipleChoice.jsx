@@ -174,6 +174,9 @@ export default function SelectSmall({
 
       <h1 className={"prettyLatex"}>
         <Latex>{question.question}</Latex>
+        <div>
+          <img src={question.image} />
+        </div>
       </h1>
       <ul className="multiplechoice">
         <li className="eachChoice">
@@ -230,6 +233,7 @@ export default function SelectSmall({
             labelId="demo-select-small"
             id="demo-select-small"
             value={userAnswer}
+            disabled={loading}
             label="Answer"
             onChange={handleChange}
           >

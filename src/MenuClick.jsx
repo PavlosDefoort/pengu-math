@@ -62,7 +62,7 @@ export default function FadeMenu() {
           </MenuItem>
 
           <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/1ZA3T1"}>Calculus I Test 2</Link>
+            <Link to={"/1ZA3T2"}>Calculus I Test 2</Link>
           </MenuItem>
           <MenuItem onClick={handleNewQuiz}>
             <Link to={"/practice"}>Syntax Practice</Link>

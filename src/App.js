@@ -55,7 +55,7 @@ export default function App() {
         <Route path="/1ZB3T1" element={<ZB3T1 />} />
         <Route path="/MCV4UVectors" element={<MCV4UVectors />} />
         <Route path="/practice" element={<PractiseTest />} />
-        <Route path="/1ZA3T1" element={<ZA3Test1 />} />
+        <Route path="/1ZA3T2" element={<ZA3Test1 />} />
       </Routes>
     </div>
   );
