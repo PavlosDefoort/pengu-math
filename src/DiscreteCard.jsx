@@ -19,29 +19,31 @@ export default function ActionAreaCard() {
     navigate("/1DM3T1");
   }
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={changeQuiz}>
-        <CardMedia
-          component="img"
-          height="250"
-          image={require("./Article-Page-86.png")}
-          alt="discrete math"
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            fontWeight={"bold"}
-          >
-            Discrete Mathematics
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            The next mathematical proof you complete will be flawless after you
-            complete these discrete math quizzes!
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <a href="https://pengu-math.vercel.app/1DM3T1" className="no-underline">
+      <Card sx={{ maxWidth: 345 }}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="250"
+            image={require("./Article-Page-86.png")}
+            alt="discrete math"
+          />
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              fontWeight={"bold"}
+            >
+              Discrete Mathematics
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              The next mathematical proof you complete will be flawless after
+              you complete these discrete math quizzes!
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </a>
   );
 }

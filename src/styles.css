@@ -35,6 +35,10 @@
   color: blue;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
 .paragraphStyle {
   margin-bottom: 2rem;
 }
@@ -45,7 +49,6 @@
   left: 0;
   width: 100%;
   height: 200%;
-
   background-size: cover;
   background-position: center;
   background-image: url(pexels-andrea-piacquadio-3771074.jpg);
@@ -81,15 +84,47 @@
 }
 
 .introText {
-  color: whitesmoke;
   margin-left: 5rem;
   margin-top: 5rem;
   padding: 20px;
   border: 1px solid black;
-  border-style: none;
-  width: 35rem;
-  height: 24rem;
+  border-style: dashed;
+  width: 37rem;
+  height: 28rem;
+  background: rgb(
+    204,
+    204,
+    204
+  ); /* Fallback for older browsers without RGBA-support */
+  background: rgba(35, 34, 34, 0.8);
 }
+
+.introText p {
+  z-index: 1;
+  color: whitesmoke;
+}
+
+.introTexts {
+  margin-left: 5rem;
+  margin-top: 5rem;
+  padding: 20px;
+  border: 1px solid black;
+  border-style: dashed;
+  width: 34rem;
+  height: 15rem;
+  background: rgb(
+    204,
+    204,
+    204
+  ); /* Fallback for older browsers without RGBA-support */
+  background: rgba(35, 34, 34, 0.8);
+}
+
+.introTexts p {
+  z-index: 1;
+  color: whitesmoke;
+}
+
 .explanation {
   display: flex;
   justify-content: center;

@@ -45,14 +45,20 @@ export default function Home() {
           {...(checked ? { timeout: 1000 } : {})}
         >
           <div className="introText">
-            <Typography variant="h1" fontFamily={"sans-serif"}>
-              Testing that's all about your success
-            </Typography>
-            <Typography variant="h6" align="left">
-              Achieving academic success has never been easier! PenguMath is
-              your go-to destination for acing exams and testing your knowledge
-              on a variety of subjects.{" "}
-            </Typography>
+            <p>
+              <Typography variant="h1" fontFamily={"sans-serif"}>
+                Testing that's all about{" "}
+                <strong style={{ color: "yellow" }}>
+                  <em>your success</em>
+                </strong>{" "}
+              </Typography>
+
+              <Typography variant="h6" align="left">
+                Achieving academic success has never been easier! PenguMath is
+                your go-to destination for acing exams and testing your
+                knowledge on a variety of subjects.{" "}
+              </Typography>
+            </p>
           </div>
         </Grow>
         <div className="intros">
@@ -75,13 +81,19 @@ export default function Home() {
                 unmountOnExit
               >
                 <div className="cards">
-                  <h1 className="limits">
-                    <Typography variant="h2">Break your limit</Typography>
-                    <Typography variant="h5">
-                      Master the art of testing with our university-standardized
-                      quiz questions. Practice makes perfect, so why not try one
-                      out today?
-                    </Typography>
+                  <h1 className="introTexts">
+                    <p>
+                      <Typography variant="h2">
+                        <strong style={{ color: "orange" }}>
+                          Break your limit
+                        </strong>
+                      </Typography>
+                      <Typography variant="h5">
+                        Master the art of testing with our
+                        university-standardized quiz questions. Practice makes
+                        perfect, so why not try one out today?
+                      </Typography>
+                    </p>
                   </h1>
                   <div className="eachCard">
                     <NewCard />
