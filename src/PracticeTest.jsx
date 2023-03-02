@@ -11,11 +11,15 @@ import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
 import Progress from "./Progress";
 import MultipleChoice from "./MultipleChoice";
+import LimitExplanation from "./ZA3T2/ZA3T2Solutions/LimitExplanation";
 
 export default function PractiseTest() {
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem("pracscore") || 0)
   );
+  const explanationDict = {
+    LimitExplanation: LimitExplanation,
+  };
 
   const handleButtonClick = () => {
     localStorage.removeItem("pracscore");
@@ -68,6 +72,7 @@ export default function PractiseTest() {
                     setScore={setScore}
                     scoreFactor={16.66}
                     scoreName={"pracscore"}
+                    Explanation={explanationDict["LimitExplanation"]}
                   />
                 </h1>
               );
@@ -80,6 +85,7 @@ export default function PractiseTest() {
                     setScore={setScore}
                     scoreFactor={16.66}
                     scoreName={"pracscore"}
+                    Explanation={explanationDict["LimitExplanation"]}
                   />
                 </h1>
               );

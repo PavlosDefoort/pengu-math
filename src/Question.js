@@ -15,7 +15,6 @@ import { blue } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
 import "katex/dist/katex.min.css";
 import katex from "katex";
-import parallelgroam from "./volume_parallelepiped.png";
 
 var Latex = require("react-latex");
 
@@ -23,7 +22,14 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-function Question({ question, score, setScore, scoreFactor, scoreName }) {
+function Question({
+  question,
+  score,
+  setScore,
+  scoreFactor,
+  scoreName,
+  Explanation,
+}) {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [answer, setAnswer] = useState(false);
@@ -146,6 +152,7 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
           Math.round(parser.evaluate(data) * 1000000) / 1000000 ===
             question.answer2
         ) {
+          console.log(pogChilds(data));
           setBadSnack(false);
           setWarning(false);
           setIncorrect(false);
@@ -164,6 +171,7 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
         }
       } else {
         if (pogChilds(data) === question.answer) {
+          console.log(pogChilds(data));
           setBadSnack(false);
           setWarning(false);
           setOpen(true);
@@ -191,7 +199,7 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
   return (
     <div className="question">
       <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
@@ -200,12 +208,12 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
             Correct!
           </Alert>
         </Snackbar>
-        <Snackbar open={badSnack} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={badSnack} autoHideDuration={1500} onClose={handleClose}>
           <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
             Incorrect!
           </Alert>
         </Snackbar>
-        <Snackbar open={warning} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={warning} autoHideDuration={1500} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="warning"
@@ -228,9 +236,6 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
 
       <h1 className={question.css}>
         <Latex>{question.question}</Latex>
-        <div>
-          <img src={question.image} />
-        </div>
       </h1>
       <div className="">
         {print ? (
@@ -243,6 +248,9 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
             <Typography variant="h6">
               Answer:
               <Latex>{" " + question.solution}</Latex>
+              <h4 className="explanationButton">
+                <Explanation />
+              </h4>
             </Typography>
           </h4>
         ) : null}
@@ -252,6 +260,9 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
             <Typography variant="h6">
               Answer:
               <Latex>{" " + question.solution}</Latex>
+              <h4 className="explanationButton">
+                <Explanation />
+              </h4>
             </Typography>
           </h4>
         ) : null}
@@ -277,14 +288,20 @@ function Question({ question, score, setScore, scoreFactor, scoreName }) {
           </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
-              <Button
-                variant="contained"
-                sx={buttonSx}
-                disabled={loading}
-                onClick={handleButtonClick}
+              <Tooltip
+                title={
+                  "Attempted: " + (localStorage.getItem(question.attempts) ?? 0)
+                }
               >
-                SUBMIT
-              </Button>
+                <Button
+                  variant="contained"
+                  sx={buttonSx}
+                  disabled={loading}
+                  onClick={handleButtonClick}
+                >
+                  SUBMIT
+                </Button>
+              </Tooltip>
 
               {circular && (
                 <CircularProgress

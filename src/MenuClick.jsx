@@ -55,6 +55,9 @@ export default function FadeMenu() {
             <Link to={"/1ZC3T1"}>Linear Algebra Test 1</Link>
           </MenuItem>
           <MenuItem onClick={handleNewQuiz}>
+            <Link to={"/1DM3T1"}>Discrete Math Test 1</Link>
+          </MenuItem>
+          <MenuItem onClick={handleNewQuiz}>
             <Link to={"/1ZB3T1"}>Calculus II Test 1</Link>
           </MenuItem>
           <MenuItem onClick={handleNewQuiz}>

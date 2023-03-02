@@ -1,7 +1,7 @@
-import Question from "./Question";
+import Question from "../Question";
 import React, { useState } from "react";
-import "./styles.css";
-import vectorsInfo from "./MCV4UVectorsquestionInfo.json";
+import "../styles.css";
+import DM3Info from "./DM3T1questioninfo.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
@@ -9,13 +9,13 @@ import { Button } from "@mui/material";
 import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
-import Progress from "./Progress";
-import MultipleChoice from "./MultipleChoice";
-import LimitExplanation from "./ZA3T2/ZA3T2Solutions/LimitExplanation";
+import Progress from "../Progress";
+import MultipleChoice from "../MultipleChoice";
+import LimitExplanation from "../ZA3T2/ZA3T2Solutions/LimitExplanation";
 
-export default function VectorsTest() {
+export default function Calc1Test2() {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("Vecscore") || 0)
+    parseFloat(localStorage.getItem("1dm3t1score") || 0)
   );
 
   const explanationDict = {
@@ -23,8 +23,8 @@ export default function VectorsTest() {
   };
 
   const handleButtonClick = () => {
-    localStorage.removeItem("Vecscore");
-    for (const dict of vectorsInfo.questions) {
+    localStorage.removeItem("1dm3t1score");
+    for (const dict of DM3Info.questions) {
       for (const key in dict) {
         if (key == "buttonName") {
           localStorage.removeItem(dict[key]);
@@ -54,7 +54,7 @@ export default function VectorsTest() {
       >
         <Container maxWidth="md">
           <h1 className="calculus">
-            <Typography variant="h2">Review: Grade 12 Vectors</Typography>
+            <Typography variant="h2">Discrete Mathematics: Test 1</Typography>
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
@@ -64,12 +64,13 @@ export default function VectorsTest() {
           </h1>
           <h1 className="topicsCovered">
             <Typography variant="subtitle1">
-              Topics covered: Magnitude, unit vectors, angles, dot product,
-              cross product, triple scalar product
+              Topics covered: Propositions, propositoinal logic, propositional
+              functions, logical equivalance, quantified statements, set theory,
+              rules of inference
             </Typography>
           </h1>
 
-          {vectorsInfo.questions.map((question) => {
+          {DM3Info.questions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (
@@ -78,9 +79,9 @@ export default function VectorsTest() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"Vecscore"}
-                    Explanation={explanationDict["LimitExplanation"]}
+                    scoreFactor={33.3}
+                    scoreName={"1dm3t1score"}
+                    Explanation={explanationDict[question.explanation]}
                   />
                 </h1>
               );
@@ -91,9 +92,9 @@ export default function VectorsTest() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"Vecscore"}
-                    Explanation={explanationDict["LimitExplanation"]}
+                    scoreFactor={33.3}
+                    scoreName={"1dm3t1score"}
+                    Explanation={explanationDict[question.explanation]}
                   />
                 </h1>
               );

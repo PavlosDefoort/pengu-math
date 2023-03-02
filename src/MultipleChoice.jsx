@@ -25,6 +25,7 @@ export default function SelectSmall({
   setScore,
   scoreFactor,
   scoreName,
+  Explanation,
 }) {
   const [success, setSuccess] = useState(false);
   const [userAnswer, setUserAnswer] = useState("");
@@ -133,6 +134,9 @@ export default function SelectSmall({
       setShowCorrect(true);
       localStorage.setItem(question.submission, "true");
       setScore(score + scoreFactor);
+      let attempts = parseInt(localStorage.getItem(question.attempts) || 0);
+      attempts++;
+      localStorage.setItem(question.attempts, attempts);
     } else {
       setWarning(false);
       setOpen(false);
@@ -144,7 +148,7 @@ export default function SelectSmall({
   return (
     <div className="question">
       <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
@@ -153,18 +157,18 @@ export default function SelectSmall({
             Correct!
           </Alert>
         </Snackbar>
-        <Snackbar open={badSnack} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={badSnack} autoHideDuration={1500} onClose={handleClose}>
           <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
             Incorrect!
           </Alert>
         </Snackbar>
-        <Snackbar open={warning} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={warning} autoHideDuration={1500} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="warning"
             sx={{ width: "100%" }}
           >
-            Could not parse submission!
+            Choose an answer!
           </Alert>
         </Snackbar>
       </Stack>
@@ -215,6 +219,9 @@ export default function SelectSmall({
           <Typography variant="h6">
             Answer:
             <Latex>{" " + question.solution}</Latex>
+            <h4 className="explanationButton">
+              <Explanation />
+            </h4>
           </Typography>
         </h4>
       ) : null}
@@ -223,6 +230,9 @@ export default function SelectSmall({
           <Typography variant="h6">
             Answer:
             <Latex>{" " + question.solution}</Latex>
+            <h4 className="explanationButton">
+              <Explanation />
+            </h4>
           </Typography>
         </h4>
       ) : null}
@@ -246,7 +256,11 @@ export default function SelectSmall({
         </FormControl>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ m: 1, position: "relative" }}>
-            <Tooltip title="Make this answer count">
+            <Tooltip
+              title={
+                "Attempted: " + (localStorage.getItem(question.attempts) ?? 0)
+              }
+            >
               <Button
                 variant="contained"
                 sx={buttonSx}

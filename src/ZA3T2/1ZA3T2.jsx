@@ -1,6 +1,6 @@
-import Question from "./Question";
+import Question from "../Question";
 import React, { useState } from "react";
-import "./styles.css";
+import "../styles.css";
 import ZA3T2Info from "./1ZA3T2questioninfo.json";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
@@ -9,13 +9,18 @@ import { Button } from "@mui/material";
 import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
-import Progress from "./Progress";
-import MultipleChoice from "./MultipleChoice";
+import Progress from "../Progress";
+import MultipleChoice from "../MultipleChoice";
+import LimitExplanation from "./ZA3T2Solutions/LimitExplanation";
 
 export default function Calc1Test2() {
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem("1za3t2score") || 0)
   );
+
+  const explanationDict = {
+    LimitExplanation: LimitExplanation,
+  };
 
   const handleButtonClick = () => {
     localStorage.removeItem("1za3t2score");
@@ -77,6 +82,7 @@ export default function Calc1Test2() {
                     setScore={setScore}
                     scoreFactor={25}
                     scoreName={"1za3t2score"}
+                    Explanation={explanationDict[question.explanation]}
                   />
                 </h1>
               );
@@ -89,6 +95,7 @@ export default function Calc1Test2() {
                     setScore={setScore}
                     scoreFactor={25}
                     scoreName={"1za3t2score"}
+                    Explanation={explanationDict[question.explanation]}
                   />
                 </h1>
               );

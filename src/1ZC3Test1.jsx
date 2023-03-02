@@ -10,11 +10,16 @@ import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
 import Progress from "./Progress";
+import LimitExplanation from "./ZA3T2/ZA3T2Solutions/LimitExplanation";
 
 export default function ZC3Test1() {
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem("1ZC3score") || 0)
   );
+
+  const explanationDict = {
+    LimitExplanation: LimitExplanation,
+  };
 
   const handleButtonClick = () => {
     localStorage.removeItem("1ZC3score");
@@ -65,6 +70,7 @@ export default function ZC3Test1() {
                 setScore={setScore}
                 scoreFactor={10}
                 scoreName={"1ZC3score"}
+                Explanation={explanationDict["LimitExplanation"]}
               />
             </h1>
           ))}

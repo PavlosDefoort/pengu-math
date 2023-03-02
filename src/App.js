@@ -38,7 +38,9 @@ import Multiple from "./MultipleChoice";
 import MCQ from "./MCQuestion";
 import { blue } from "@mui/material/colors";
 import PractiseTest from "./PracticeTest";
-import ZA3Test1 from "./1ZA3T2.jsx";
+import ZA3Test1 from "./ZA3T2/1ZA3T2";
+import DM3T1 from "./1DM3T1/DM3T1";
+import { useEffect } from "react";
 
 const darkTheme = createTheme({
   palette: {
@@ -46,6 +48,17 @@ const darkTheme = createTheme({
   },
 });
 export default function App() {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
   return (
     <div>
       <NewBar />
@@ -56,6 +69,7 @@ export default function App() {
         <Route path="/MCV4UVectors" element={<MCV4UVectors />} />
         <Route path="/practice" element={<PractiseTest />} />
         <Route path="/1ZA3T2" element={<ZA3Test1 />} />
+        <Route path="/1DM3T1" element={<DM3T1 />} />
       </Routes>
     </div>
   );
