@@ -4,13 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import {
-  BrowserRouter,
-  Route,
-  Link,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function ActionAreaCard() {
   const navigate = useNavigate();
@@ -19,13 +13,13 @@ export default function ActionAreaCard() {
     navigate("/1DM3T1");
   }
   return (
-    <a href="https://pengu-math.vercel.app/1DM3T1" className="no-underline">
-      <Card sx={{ maxWidth: 345 }}>
+    <Link to={"/under-construction"} className="no-underline">
+      <Card sx={{ maxWidth: 345, height: 400 }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="250"
-            image={require("./Article-Page-86.png")}
+            image={"/images/Article-Page-86.png"}
             alt="discrete math"
           />
           <CardContent>
@@ -34,8 +28,9 @@ export default function ActionAreaCard() {
               variant="h5"
               component="div"
               fontWeight={"bold"}
+              style={{ color: "rgb(161, 3, 106)" }}
             >
-              Discrete Mathematics
+              Discrete Math
             </Typography>
             <Typography variant="body2" color="text.secondary">
               The next mathematical proof you complete will be flawless after
@@ -44,6 +39,6 @@ export default function ActionAreaCard() {
           </CardContent>
         </CardActionArea>
       </Card>
-    </a>
+    </Link>
   );
 }

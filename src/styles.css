@@ -12,18 +12,27 @@
   text-align: center;
 }
 
-.cards {
+.realCards {
   display: flex;
   justify-content: center;
-  width: 100%;
+}
+
+.cards {
+  margin-top: 7rem;
+  max-width: 100%;
+  max-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .cardsBackground {
   background-color: beige;
   width: 100%;
 }
+
 .eachCard {
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .explanationButton {
@@ -37,6 +46,7 @@
 
 .no-underline {
   text-decoration: none;
+  color: purple;
 }
 
 .paragraphStyle {
@@ -47,50 +57,120 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 200%;
+
   background-size: cover;
   background-position: center;
-  background-image: url(pexels-andrea-piacquadio-3771074.jpg);
-  margin-top: 3rem;
+  background-image: url("/public/images/pexels-andrea-piacquadio-3771074.jpg");
+  background-repeat: no-repeat;
 }
 
 .limits {
-  color: whitesmoke;
-  margin-left: 4rem;
-  margin-top: 7rem;
-  border: 1px solid black;
-  border-style: none;
-  width: 35rem;
-  height: 24rem;
+  font-size: 4rem;
+  font-style: italic;
+  color: rgb(255, 0, 166);
+  text-shadow: 2px 4px 3px rgba(101, 14, 14, 0.1);
+}
+
+.underLimits {
+  color: white;
 }
 
 .intros {
-  position: absolute;
-  top: 47rem;
-  width: 100%;
-  height: 135% !important;
+  margin-top: 10rem;
+  min-width: 100%;
+  min-height: 100%;
 
   background-size: cover;
   background-position: center;
-  background-image: url(pexels-andrea-piacquadio-3769714.jpg);
-  margin-top: 3rem;
+  background-image: url("/public/images/pexels-andrea-piacquadio-3769714.jpg");
 }
 
+/* God tier CSS moment :) */
+body {
+  margin: 0.01% !important;
+}
 .container {
-  position: relative;
-  width: 100%;
-  height: 400px;
+  font-family: sans-serif;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.introBackground {
+  display: flex;
+  height: 100vh;
+  background-color: gold;
+  background-size: cover;
+  /* background-image: url("/public/images/undraw_mathematics_-4-otb.svg"); */
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.icon {
+  position: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .introBackground {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.newText {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.secondBackground {
+  height: 100vh;
+  max-width: 100%;
+
+  background-size: cover;
+  /* background-image: url("/public/images/undraw_under_construction_-46-pa.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(162, 236, 172);
+}
+
+@media screen and (max-width: 900px) {
+  .secondBackground {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
 }
 
 .introText {
-  margin-left: 5rem;
-  margin-top: 5rem;
-  padding: 20px;
-  border: 1px solid black;
-  border-style: dashed;
-  width: 37rem;
-  height: 28rem;
+  padding-top: 3rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 6vw;
+  padding-right: 6rem;
+  position: relative;
+  display: flex;
+
+  max-width: 46vw;
+
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 6rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  box-sizing: border-box;
   background: rgb(
     204,
     204,
@@ -99,19 +179,31 @@
   background: rgba(35, 34, 34, 0.8);
 }
 
+.text {
+  display: inline-block;
+}
+
+.catch {
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  font-size: 5.5vw;
+  line-height: 1;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.sub {
+  font-size: 1.2vw;
+}
+
 .introText p {
   z-index: 1;
   color: whitesmoke;
 }
 
 .introTexts {
-  margin-left: 5rem;
-  margin-top: 5rem;
-  padding: 20px;
   border: 1px solid black;
   border-style: dashed;
-  width: 34rem;
-  height: 15rem;
   background: rgb(
     204,
     204,

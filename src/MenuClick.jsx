@@ -7,8 +7,9 @@ import Box from "@mui/material/Box";
 import buttonInfo from "./buttonInfo.json";
 import Tooltip from "@mui/material/Tooltip";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { color } from "@mui/system";
 
-export default function FadeMenu() {
+export default function FadeMenu({ button }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -26,51 +27,65 @@ export default function FadeMenu() {
   return (
     <div>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        {buttonInfo.buttons.map((page) => (
-          <Tooltip title="Practice makes perfect!">
+        <div>
+          <Tooltip title={button.tool}>
             <Button
               id="fade-button"
               aria-controls={open ? "fade-menu" : undefined}
               aria-haspopup="true"
-              key={page.name}
+              key={button.name}
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
               sx={{ my: 1, color: "white", display: "block" }}
             >
-              {page.name}
+              {button.name}
+              {/* <Link 
+                to={"/1ZC3T1"}
+                className="no-underline"
+                style={{ color: "white" }}
+              > 
+              </Link>*/}
             </Button>
           </Tooltip>
-        ))}
-        <Menu
-          id="fade-menu"
-          MenuListProps={{
-            "aria-labelledby": "fade-button",
-          }}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Fade}
-        >
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/1ZC3T1"}>Linear Algebra Test 1</Link>
-          </MenuItem>
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/1DM3T1"}>Discrete Math Test 1</Link>
-          </MenuItem>
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/1ZB3T1"}>Calculus II Test 1</Link>
-          </MenuItem>
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/MCV4UVectors"}>Grade 12 Vectors</Link>
-          </MenuItem>
 
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/1ZA3T2"}>Calculus I Test 2</Link>
-          </MenuItem>
-          <MenuItem onClick={handleNewQuiz}>
-            <Link to={"/practice"}>Syntax Practice</Link>
-          </MenuItem>
-        </Menu>
+          <Menu
+            MenuListProps={{
+              "aria-labelledby": "fade-button",
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Fade}
+          >
+            {button.menu.map((slida) => (
+              <MenuItem onClick={handleNewQuiz}>
+                <Link to={slida.link} className="no-underline">
+                  {slida.name}
+                </Link>
+              </MenuItem>
+
+              /*  <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/1ZC3T1"}>Linear Algebra Test 1</Link>
+                </MenuItem>
+                <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/1DM3T1"}>Discrete Math Test 1</Link>
+                </MenuItem>
+                <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/1ZB3T1"}>Calculus II Test 1</Link>
+                </MenuItem>
+                <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/MCV4UVectors"}>Grade 12 Vectors</Link>
+                </MenuItem>
+
+                <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/1ZA3T2"}>Calculus I Test 2</Link>
+                </MenuItem>
+                <MenuItem onClick={handleNewQuiz}>
+                  <Link to={"/practice"}>Syntax Practice</Link>
+                </MenuItem>*/
+            ))}
+          </Menu>
+        </div>
       </Box>
     </div>
   );

@@ -1,0 +1,36 @@
+.containerlol {
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  background-color: rgb(174, 178, 247);
+  height: 100vh;
+}
+
+.containerlol2 {
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  background-color: rgb(65, 254, 169);
+  height: 100vh;
+}
+
+.img {
+  float: left;
+  margin-left: 20px;
+  max-width: 100%;
+}
+
+.centered-text {
+  object-position: left bottom;
+  position: relative;
+  font-family: sans-serif;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  text-overflow: clip;
+  font-size: 2vw;
+  margin-left: 2vw;
+}

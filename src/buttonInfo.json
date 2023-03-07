@@ -3,7 +3,125 @@
     {
       "name": "Quizzes",
       "action": "handleQuizzesButton",
-      "tool": "Practice makes perfect!"
+      "tool": "Practice makes perfect!",
+      "menu": [
+        {
+          "name": "Calculus",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Linear Algebra",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Discrete Math",
+          "link": "/under-construction"
+        }
+      ]
+    },
+    {
+      "name": "Tests",
+      "action": "handleQuizzesButton",
+      "tool": "Time for a challenge!",
+      "menu": [
+        {
+          "name": "Calculus I Test 1",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Calculus I Test 2",
+          "link": "/calculus/calculus-1/test2"
+        },
+        {
+          "name": "Calculus II Test 1",
+          "link": "/calculus/calculus-2/test1"
+        },
+        {
+          "name": "Calculus II Test 2",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Linear Algebra Test 1",
+          "link": "/linear-algebra/test1"
+        },
+        {
+          "name": "Linear Algebra Test 2",
+          "link": "/under-construction"
+        },
+
+        {
+          "name": "Discrete Math Test 1",
+          "link": "/discrete-math/test1"
+        }
+      ]
+    },
+    {
+      "name": "Exams",
+      "action": "handleQuizzesButton",
+      "tool": "Getting serious!",
+      "menu": [
+        {
+          "name": "Calculus",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Linear Algebra",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Discrete Math",
+          "link": "/under-construction"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "action": "handleQuizzesButton",
+      "tool": "Learn about the origins",
+      "menu": [
+        {
+          "name": "The Creator",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Our Mission",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Syntax Practice",
+          "link": "/practice"
+        }
+      ]
+    },
+    {
+      "name": "Status",
+      "action": "handleQuizzesButton",
+      "tool": "Keep track of PenguMath",
+      "menu": [
+        {
+          "name": "Patch Notes",
+          "link": "/under-construction"
+        },
+        {
+          "name": "What's Next",
+          "link": "/under-construction"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "action": "handleQuizzesButton",
+      "tool": "We're open to talk!",
+      "menu": [
+        {
+          "name": "Bug Report",
+          "link": "/under-construction"
+        },
+        {
+          "name": "Other",
+          "link": "/under-construction"
+        }
+      ]
     }
   ]
 }

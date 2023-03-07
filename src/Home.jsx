@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography";
-import { Collapse } from "@mui/material";
+import { Collapse, CssBaseline } from "@mui/material";
 import { useEffect, useState, useRef } from "react";
 import Grow from "@mui/material/Grow";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -13,6 +13,10 @@ import { useInView } from "react-intersection-observer";
 import Box from "@mui/system/Box";
 import { color } from "@mui/system";
 import { blue } from "@mui/material/colors";
+import { Css, CssOutlined, CssRounded, CssSharp } from "@mui/icons-material";
+
+import * as React from "react";
+import styles1 from "./styles.css";
 
 export default function Home() {
   const [checked, setChecked] = useState(false);
@@ -23,7 +27,7 @@ export default function Home() {
     const onScroll = () => {
       const containerTop = containerRef.current.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
-      if (containerTop < windowHeight * 0) {
+      if (containerTop < windowHeight * 0.01) {
         setIsShown(true);
       }
     };
@@ -37,64 +41,76 @@ export default function Home() {
     setChecked(true);
   }, []);
   return (
-    <div className="container">
-      <div className="intro">
+    <div className={styles1.container}>
+      <CssBaseline />
+
+      <div className="introBackground">
         <Grow
           in={checked}
           style={{ transformOrigin: "0 0 0" }}
           {...(checked ? { timeout: 1000 } : {})}
         >
           <div className="introText">
-            <p>
-              <Typography variant="h1" fontFamily={"sans-serif"}>
+            <div className="text">
+              <h1 className="catch">
                 Testing that's all about{" "}
                 <strong style={{ color: "yellow" }}>
                   <em>your success</em>
                 </strong>{" "}
-              </Typography>
-
-              <Typography variant="h6" align="left">
+              </h1>
+              <h3 className="sub">
                 Achieving academic success has never been easier! PenguMath is
                 your go-to destination for acing exams and testing your
                 knowledge on a variety of subjects.{" "}
-              </Typography>
-            </p>
+              </h3>
+            </div>
           </div>
         </Grow>
-        <div className="intros">
-          <div style={{ height: "0" }}>
-            <div
-              ref={containerRef}
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "28rem",
-                overflowX: "hidden",
-              }}
+        <img
+          src="/images/undraw_mathematics_-4-otb.svg"
+          alt="My SVG img"
+          style={{ overflow: "hidden" }}
+        ></img>
+      </div>
+
+      {/* 
+
+      <div className="secondBackground" style={{ overflow: "hidden" }}>
+        <div style={{ height: "100px" }}>
+          <div
+            ref={containerRef}
+            style={{
+              overflowX: "hidden",
+            }}
+          >
+            <Slide
+              direction="left"
+              in={isShown}
+              style={{ transformOrigin: "0 0 0" }}
+              {...(isShown ? { timeout: 1000 } : {})}
+              mountOnEnter
+              unmountOnExit
             >
-              <Slide
-                direction="left"
-                in={isShown}
-                style={{ transformOrigin: "0 0 0" }}
-                {...(isShown ? { timeout: 1000 } : {})}
-                mountOnEnter
-                unmountOnExit
-              >
-                <div className="cards">
-                  <h1 className="introTexts">
-                    <p>
-                      <Typography variant="h2">
-                        <strong style={{ color: "orange" }}>
-                          Break your limit
-                        </strong>
-                      </Typography>
-                      <Typography variant="h5">
+              <div className="cards">
+                <h1>
+                  <p>
+                    <div className="limits">
+                      <strong style={{}}>Break your limit</strong>
+                    </div>
+                   
+                    <div className="sub">
+                      <h3>
                         Master the art of testing with our
-                        university-standardized quiz questions. Practice makes
-                        perfect, so why not try one out today?
-                      </Typography>
-                    </p>
-                  </h1>
+                        university-standardized quiz questions.
+                      </h3>
+                      <h3>
+                        Practice makes perfect, so why not try one out today?
+                      </h3>
+                    </div>
+                  </p>
+                </h1>
+
+                <div className="realCards">
                   <div className="eachCard">
                     <NewCard />
                   </div>
@@ -105,11 +121,11 @@ export default function Home() {
                     <DiscreteCard />
                   </div>
                 </div>
-              </Slide>
-            </div>
+              </div>
+            </Slide>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
