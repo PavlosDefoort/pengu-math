@@ -1,5 +1,5 @@
 import Question from "./Question";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles.css";
 
 import Typography from "@mui/material/Typography";
@@ -13,7 +13,7 @@ import Progress from "./Progress";
 import MultipleChoice from "./MultipleChoice";
 import LimitExplanation from "../LimitExplanation";
 
-export default function Test({ info }) {
+export default function Calculus({ info }) {
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem(info.storage) || 0)
   );
@@ -21,10 +21,6 @@ export default function Test({ info }) {
   const explanationDict = {
     LimitExplanation: LimitExplanation,
   };
-
-  useEffect(() => {
-    setScore(0);
-  }, []);
 
   const handleButtonClick = () => {
     localStorage.removeItem(info.storage);
@@ -63,7 +59,7 @@ export default function Test({ info }) {
           <h1 className="quizInfo">
             <Typography variant="h5">
               Three attempts are allowed per question! To reset, click the Sigma
-              button! {score} {info.storage}
+              button!
             </Typography>
           </h1>
           <h1 className="topicsCovered">

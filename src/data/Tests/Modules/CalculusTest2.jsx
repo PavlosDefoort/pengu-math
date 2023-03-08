@@ -1,6 +1,6 @@
-import Question from "./Question";
+import Question from "../../../Question Components/Question";
 import React, { useState, useEffect } from "react";
-import "../styles.css";
+import "../../../styles.css";
 
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
@@ -9,11 +9,11 @@ import { Button } from "@mui/material";
 import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
-import Progress from "./Progress";
-import MultipleChoice from "./MultipleChoice";
-import LimitExplanation from "../LimitExplanation";
+import Progress from "../../../Question Components/Progress";
+import MultipleChoice from "../../../Question Components/MultipleChoice";
+import LimitExplanation from "../../../LimitExplanation";
 
-export default function Test({ info }) {
+export default function CalculusTestTwo({ info }) {
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem(info.storage) || 0)
   );
@@ -63,7 +63,7 @@ export default function Test({ info }) {
           <h1 className="quizInfo">
             <Typography variant="h5">
               Three attempts are allowed per question! To reset, click the Sigma
-              button! {score} {info.storage}
+              button!
             </Typography>
           </h1>
           <h1 className="topicsCovered">

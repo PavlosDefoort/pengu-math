@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
-import { create, all } from "mathjs";
+import { create, all, evaluate, compare, e } from "mathjs";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -14,6 +14,8 @@ import { blue } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
 import "katex/dist/katex.min.css";
 import katex from "katex";
+import { addStyles, EditableMathField } from "react-mathquill";
+import { parse } from "mathjs";
 
 var Latex = require("react-latex");
 
@@ -44,6 +46,20 @@ function Question({
   const [showCorrect, setShowCorrect] = useState(false);
   const latexEquation = question.prompt;
   const renderedEquation = renderLatexEquation(latexEquation);
+
+  function handleLatexChange(mathField) {
+    setLatex(mathField.latex());
+    // Additional logic for the first onChange handler goes here...
+  }
+
+  function handleAnotherChange(mathField) {
+    setData(mathField.text());
+    // Additional logic for the second onChange handler goes here...
+  }
+
+  addStyles();
+
+  const [latex, setLatex] = useState("");
 
   //const imageURL = question.image}
 
@@ -134,8 +150,19 @@ function Question({
     setBadSnack(false);
     setWarning(false);
   };
-  const math = create(all, {});
+  const math = require("mathjs");
   const parser = math.parser();
+
+  const customScope = {
+    arcsin: math.asin,
+    arccos: math.acos,
+    arctan: math.atan,
+    sinh: math.sinh,
+    cosh: math.cosh,
+    tanh: math.tanh,
+    log: math.log10,
+    ln: math.log,
+  };
 
   function getData(val) {
     setData(val.target.value);
@@ -143,12 +170,11 @@ function Question({
   }
 
   function getAnswer() {
-    parser.set("x", 5);
     try {
       if (question.answer2 != null) {
         if (
-          pogChilds(data) === question.answer ||
-          Math.round(parser.evaluate(data) * 1000000) / 1000000 ===
+          latex === question.answer ||
+          Math.round(math.evaluate(data, customScope) * 1000000) / 1000000 ===
             question.answer2
         ) {
           console.log(pogChilds(data));
@@ -169,7 +195,7 @@ function Question({
           handleAttempts();
         }
       } else {
-        if (pogChilds(data) === question.answer) {
+        if (latex === question.answer) {
           console.log(pogChilds(data));
           setBadSnack(false);
           setWarning(false);
@@ -237,6 +263,16 @@ function Question({
         <Latex>{question.question}</Latex>
       </h1>
       <div className="">
+        <div className="userInput">
+          <EditableMathField
+            latex={latex}
+            onChange={(mathField) => {
+              handleLatexChange(mathField);
+              handleAnotherChange(mathField);
+              // Additional function call goes here...
+            }}
+          />
+        </div>
         {print ? (
           <h1 className="userInput">
             <Latex>{"$" + pogChilds(data) + "$"}</Latex>
@@ -277,6 +313,10 @@ function Question({
           </h4>
         ) : null}
         <h1 className="prettyInput">
+          <div></div>
+
+          {/* 
+
           <Tooltip title="Enter your answer here">
             <TextField
               type="text"
@@ -284,7 +324,7 @@ function Question({
               onChange={getData}
               disabled={buttonBool}
             ></TextField>
-          </Tooltip>
+          </Tooltip> */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
               <Tooltip
