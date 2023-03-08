@@ -8,11 +8,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { blue } from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import { TextField, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { BlockMath } from "katex";
 
 var Latex = require("react-latex");
 

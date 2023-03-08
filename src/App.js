@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import "./styles.css";
 import "@fontsource/roboto/300.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import NewBar from "./NewBar";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import ZC3T1 from "./1ZC3Test1";
-import ZB3T1 from "./1ZB3Test1";
-import MCV4UVectors from "./MCV4UVectors";
-import Home from "./Home";
-import PractiseTest from "./PracticeTest";
-import ZA3Test2 from "./ZA3T2/1ZA3T2";
-import DM3T1 from "./1DM3T1/DM3T1";
-import DiscreteMath from "./DiscreteMath";
+import NewBar from "./AppBar/NewBar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home/Home";
+import CalculusT2Info from "./data/Tests/Calculus 1/test2.json";
+import Calculus2T1Info from "./data/Tests/Calculus 2/test1.json";
+import LinearAlgebraT1 from "./data/Tests/Linear Algebra/test1.json";
+import PracticeTest from "./data/Tests/Practice/practice.json";
+import VectorsT1 from "./data/Tests/Grade 12/Vectors/test1.json";
+import DiscreteT1 from "./data/Tests/Discrete Math/test1.json";
+
+import Test from "./Question Components/Test";
+
 import { useEffect } from "react";
-import Construction from "./Construction";
-import Error404 from "./404";
+import Construction from "./Error Pages/Construction";
+
+import Error404 from "./Error Pages/404";
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -39,23 +42,38 @@ export default function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/discrete-math" element={<Construction />} />
-        <Route path="/discrete-math/test1" element={<DM3T1 />} />
+        <Route
+          path="/discrete-math/test1"
+          element={<Test info={DiscreteT1} />}
+        />
 
         <Route path="/calculus" element={<Construction />} />
         <Route path="/calculus/calculus-1" element={<Construction />} />
-        <Route path="/calculus/calculus-1/test2" element={<ZA3Test2 />} />
+        <Route
+          path="/calculus/calculus-1/test2"
+          element={<Test info={CalculusT2Info} />}
+        />
 
         <Route path="/calculus/calculus-2" element={<Construction />} />
-        <Route path="/calculus/calculus-2/test1" element={<ZB3T1 />} />
+        <Route
+          path="/calculus/calculus-2/test1"
+          element={<Test info={Calculus2T1Info} />}
+        />
 
         <Route path="/linear-algebra" element={<Construction />} />
-        <Route path="/linear-algebra/test1" element={<ZC3T1 />} />
+        <Route
+          path="/linear-algebra/test1"
+          element={<Test info={LinearAlgebraT1} />}
+        />
 
         <Route path="/grade-12" element={<Construction />} />
         <Route path="/grade-12/vectors" element={<Construction />} />
-        <Route path="/grade-12/vectors/test1" element={<MCV4UVectors />} />
+        <Route
+          path="/grade-12/vectors/test1"
+          element={<Test info={VectorsT1} />}
+        />
 
-        <Route path="/practice" element={<PractiseTest />} />
+        <Route path="/practice" element={<Test info={PracticeTest} />} />
 
         <Route path="/under-construction" element={<Construction />} />
         <Route path="*" element={<Error404 />} />

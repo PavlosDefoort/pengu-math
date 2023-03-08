@@ -1,25 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import pogChilds from "./pogChilds";
-import "./styles.css";
+
 import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import { Container } from "@mui/system";
-import { create, all, smaller } from "mathjs";
+
+import { create, all } from "mathjs";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { set } from "react-hook-form";
 import CircularProgress from "@mui/material/CircularProgress";
 import { blue } from "@mui/material/colors";
 import Tooltip from "@mui/material/Tooltip";
 import "katex/dist/katex.min.css";
 import katex from "katex";
-
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 
 var Latex = require("react-latex");
 
@@ -27,7 +21,14 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-function MCQuestion({ question, score, setScore }) {
+function Question({
+  question,
+  score,
+  setScore,
+  scoreFactor,
+  scoreName,
+  Explanation,
+}) {
   const [data, setData] = useState(null);
   const [print, setPrint] = useState(false);
   const [answer, setAnswer] = useState(false);
@@ -44,11 +45,7 @@ function MCQuestion({ question, score, setScore }) {
   const latexEquation = question.prompt;
   const renderedEquation = renderLatexEquation(latexEquation);
 
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  //const imageURL = question.image}
 
   function renderLatexEquation(latex) {
     try {
@@ -78,7 +75,7 @@ function MCQuestion({ question, score, setScore }) {
   }, []); // The empty array ensures that the effect only runs on mount
 
   React.useEffect(() => {
-    localStorage.setItem("score", score);
+    localStorage.setItem(scoreName, score);
   }, [score]);
 
   const timer = React.useRef();
@@ -154,6 +151,7 @@ function MCQuestion({ question, score, setScore }) {
           Math.round(parser.evaluate(data) * 1000000) / 1000000 ===
             question.answer2
         ) {
+          console.log(pogChilds(data));
           setBadSnack(false);
           setWarning(false);
           setIncorrect(false);
@@ -163,9 +161,7 @@ function MCQuestion({ question, score, setScore }) {
           setLoading(true);
           setShowCorrect(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 10);
-
-          handleAttempts();
+          setScore(score + scoreFactor);
         } else {
           setWarning(false);
           setOpen(false);
@@ -174,6 +170,7 @@ function MCQuestion({ question, score, setScore }) {
         }
       } else {
         if (pogChilds(data) === question.answer) {
+          console.log(pogChilds(data));
           setBadSnack(false);
           setWarning(false);
           setOpen(true);
@@ -183,9 +180,7 @@ function MCQuestion({ question, score, setScore }) {
           setButton(true);
           setLoading(true);
           localStorage.setItem(question.submission, "true");
-          setScore(score + 10);
-
-          handleAttempts();
+          setScore(score + scoreFactor);
         } else {
           setWarning(false);
           setOpen(false);
@@ -203,7 +198,7 @@ function MCQuestion({ question, score, setScore }) {
   return (
     <div className="question">
       <Stack spacing={2} sx={{ width: "100%" }}>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="success"
@@ -212,12 +207,12 @@ function MCQuestion({ question, score, setScore }) {
             Correct!
           </Alert>
         </Snackbar>
-        <Snackbar open={badSnack} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={badSnack} autoHideDuration={1500} onClose={handleClose}>
           <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
             Incorrect!
           </Alert>
         </Snackbar>
-        <Snackbar open={warning} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={warning} autoHideDuration={1500} onClose={handleClose}>
           <Alert
             onClose={handleClose}
             severity="warning"
@@ -252,6 +247,9 @@ function MCQuestion({ question, score, setScore }) {
             <Typography variant="h6">
               Answer:
               <Latex>{" " + question.solution}</Latex>
+              <h4 className="explanationButton">
+                <Explanation />
+              </h4>
             </Typography>
           </h4>
         ) : null}
@@ -261,6 +259,9 @@ function MCQuestion({ question, score, setScore }) {
             <Typography variant="h6">
               Answer:
               <Latex>{" " + question.solution}</Latex>
+              <h4 className="explanationButton">
+                <Explanation />
+              </h4>
             </Typography>
           </h4>
         ) : null}
@@ -277,24 +278,20 @@ function MCQuestion({ question, score, setScore }) {
         ) : null}
         <h1 className="prettyInput">
           <Tooltip title="Enter your answer here">
-            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-              <InputLabel id="demo-select-small">Answer</InputLabel>
-              <Select
-                labelId="demo-select-small"
-                id="demo-select-small"
-                value={age}
-                label="Answer"
-                onChange={handleChange}
-              >
-                <MenuItem value={10}>A</MenuItem>
-                <MenuItem value={20}>B</MenuItem>
-                <MenuItem value={30}>C</MenuItem>
-              </Select>
-            </FormControl>
+            <TextField
+              type="text"
+              label="Answer"
+              onChange={getData}
+              disabled={buttonBool}
+            ></TextField>
           </Tooltip>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
-              <Tooltip title="Make this answer count">
+              <Tooltip
+                title={
+                  "Attempted: " + (localStorage.getItem(question.attempts) ?? 0)
+                }
+              >
                 <Button
                   variant="contained"
                   sx={buttonSx}
@@ -304,6 +301,7 @@ function MCQuestion({ question, score, setScore }) {
                   SUBMIT
                 </Button>
               </Tooltip>
+
               {circular && (
                 <CircularProgress
                   size={24}
@@ -325,4 +323,4 @@ function MCQuestion({ question, score, setScore }) {
   );
 }
 
-export default MCQuestion;
+export default Question;

@@ -1,4 +1,12 @@
 {
+  "title": "Discrete Math: Test 1",
+
+  "storage": "DiscreteTest1",
+
+  "topics": "Propositions, propositoinal logic, propositional functions, logical equivalance, quantified statements, set theory, rules of inference",
+
+  "points": "12.5",
+
   "questions": [
     {
       "question": "$$",

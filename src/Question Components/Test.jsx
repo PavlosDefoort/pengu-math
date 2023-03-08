@@ -1,7 +1,7 @@
-import Question from "../Question";
+import Question from "./Question";
 import React, { useState } from "react";
 import "../styles.css";
-import ZA3T2Info from "./1ZA3T2questioninfo.json";
+
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import FunctionsIcon from "@mui/icons-material/Functions";
@@ -9,13 +9,13 @@ import { Button } from "@mui/material";
 import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
-import Progress from "../Progress";
-import MultipleChoice from "../MultipleChoice";
-import LimitExplanation from "./ZA3T2Solutions/LimitExplanation";
+import Progress from "./Progress";
+import MultipleChoice from "./MultipleChoice";
+import LimitExplanation from "../LimitExplanation";
 
-export default function Calc1Test2() {
+export default function Test({ info }) {
   const [score, setScore] = useState(
-    parseFloat(localStorage.getItem("1za3t2score") || 0)
+    parseFloat(localStorage.getItem(info.storage) || 0)
   );
 
   const explanationDict = {
@@ -23,16 +23,16 @@ export default function Calc1Test2() {
   };
 
   const handleButtonClick = () => {
-    localStorage.removeItem("1za3t2score");
-    for (const dict of ZA3T2Info.questions) {
+    localStorage.removeItem(info.storage);
+    for (const dict of info.questions) {
       for (const key in dict) {
-        if (key == "buttonName") {
+        if (key === "buttonName") {
           localStorage.removeItem(dict[key]);
         }
-        if (key == "submission") {
+        if (key === "submission") {
           localStorage.removeItem(dict[key]);
         }
-        if (key == "attempts") {
+        if (key === "attempts") {
           localStorage.removeItem(dict[key]);
         }
       }
@@ -54,7 +54,7 @@ export default function Calc1Test2() {
       >
         <Container maxWidth="md">
           <h1 className="calculus">
-            <Typography variant="h2">Calculus I: Test 2</Typography>
+            <Typography variant="h2">{info.title}</Typography>
           </h1>
           <h1 className="quizInfo">
             <Typography variant="h5">
@@ -64,14 +64,11 @@ export default function Calc1Test2() {
           </h1>
           <h1 className="topicsCovered">
             <Typography variant="subtitle1">
-              Topics covered: Implicit/explicit integration, differential
-              applications in optimization, critical points, intervals of
-              concavity/increase/decrease, L'Hospital's Rule, Mean Value
-              Theorem, and hyperbolic functions
+              Topics covered: {info.topics}
             </Typography>
           </h1>
 
-          {ZA3T2Info.questions.map((question) => {
+          {info.questions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (
@@ -80,9 +77,9 @@ export default function Calc1Test2() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"1za3t2score"}
-                    Explanation={explanationDict[question.explanation]}
+                    scoreFactor={parseFloat(info.points)}
+                    scoreName={info.storage}
+                    Explanation={explanationDict["LimitExplanation"]}
                   />
                 </h1>
               );
@@ -93,9 +90,9 @@ export default function Calc1Test2() {
                     question={question}
                     score={score}
                     setScore={setScore}
-                    scoreFactor={25}
-                    scoreName={"1za3t2score"}
-                    Explanation={explanationDict[question.explanation]}
+                    scoreFactor={parseFloat(info.points)}
+                    scoreName={info.storage}
+                    Explanation={explanationDict["LimitExplanation"]}
                   />
                 </h1>
               );

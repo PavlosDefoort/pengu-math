@@ -1,4 +1,12 @@
 {
+  "title": "Linear Algebra: Test 1",
+
+  "storage": "LinearAlgebraTest1",
+
+  "topics": "Systems of linear equations, matirx operations, inverse matrix, eigenvalues, eigenvectors",
+
+  "points": "10.0",
+
   "questions": [
     {
       "question": "$$\\begin{aligned} x + y +3z & = 0\\\\ x + 2y -2z & = 3\\\\ 3x +9y +k & = 19\\end{aligned}$$",

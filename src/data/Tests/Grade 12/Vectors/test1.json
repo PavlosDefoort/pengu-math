@@ -1,4 +1,10 @@
 {
+  "title": "Vectors: Test 1",
+
+  "storage": "VectorsTest1",
+
+  "topics": "Magnitude, dot product, cross product",
+  "points": "14.2",
   "questions": [
     {
       "question": "",

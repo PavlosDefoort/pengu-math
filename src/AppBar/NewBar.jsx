@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import FunctionsIcon from "@mui/icons-material/Functions";
-import Dialog from "./Dialog";
+
 import buttonInfo from "./buttonInfo.json";
 import Fade from "@mui/material/Fade";
 import MenuClick from "./MenuClick";

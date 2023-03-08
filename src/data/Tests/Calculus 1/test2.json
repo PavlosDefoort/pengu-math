@@ -1,4 +1,12 @@
 {
+  "title": "Calculus I: Test 2",
+
+  "storage": "CalculusITest2",
+
+  "topics": "Implicit/explicit integration, differential applications in optimization, critical points, intervals of concavity/increase/decrease, L'Hospital's Rule, Mean Value Theorem, and hyperbolic functions",
+
+  "points": "9.09",
+
   "questions": [
     {
       "question": "$f(x) = \\ln(\\ln{x^{x^{2}}})$",

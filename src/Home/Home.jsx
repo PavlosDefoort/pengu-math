@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import NewCard from "./NewCard";
 import LinearCard from "./LinearCard";
 import DiscreteCard from "./DiscreteCard";
-import useWindowPosition from "./useWindowPosition";
+
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 import { useInView } from "react-intersection-observer";
@@ -16,7 +16,7 @@ import { blue } from "@mui/material/colors";
 import { Css, CssOutlined, CssRounded, CssSharp } from "@mui/icons-material";
 
 import * as React from "react";
-import styles1 from "./styles.css";
+import styles1 from "../styles.css";
 
 export default function Home() {
   const [checked, setChecked] = useState(false);
