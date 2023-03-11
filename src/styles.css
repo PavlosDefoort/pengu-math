@@ -186,14 +186,14 @@ body {
 .catch {
   margin-bottom: 1rem;
   align-self: flex-start;
-  font-size: 5.5vw;
+  font-size: 5.7vw;
   line-height: 1;
   font-weight: 800;
   font-style: italic;
 }
 
 .sub {
-  font-size: 1.2vw;
+  font-size: 1.4vw;
 }
 
 .introText p {
@@ -323,6 +323,11 @@ body {
   width: 100%;
 }
 
+.p-3 {
+  border: 2px;
+  border-style: double;
+  border-color: black;
+}
 .inputBorder {
   border: 0.05rem;
   border-style: dotted;
@@ -334,10 +339,10 @@ body {
   /* top: 25px; */
   color: blue;
   font-size: xx-large;
-  display: flex;
+  font-weight: normal !important;
   margin: auto;
   justify-content: center;
-  width: 100%;
+  width: 35%;
   padding-bottom: 1rem;
   overflow: auto;
 }

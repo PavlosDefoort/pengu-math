@@ -54,6 +54,8 @@ function Question({
 
   const handleMathData = (data) => {
     setMathData(data);
+    console.log(data);
+    getAnswer(data);
   };
 
   const ce = new ComputeEngine();
@@ -138,6 +140,7 @@ function Question({
     } else {
     }
     // Use the attempts value in your code
+    console.log("Number of attempts:", attempts);
   }
   const handleButtonClick = () => {
     if (!loading) {
@@ -153,7 +156,9 @@ function Question({
     }
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    console.log("Math data from keyboard:", mathData);
+  };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -164,19 +169,54 @@ function Question({
     setBadSnack(false);
     setWarning(false);
   };
+  const math = require("mathjs");
+  const parser = math.parser();
+
+  const customScope = {
+    // Arc functions
+    arcsin: math.asin,
+    arccos: math.acos,
+    arctan: math.atan,
+    arcsec: math.asec,
+    arccsc: math.acsc,
+    arccot: math.acot,
+    arcsinh: math.asinh,
+    arccosh: math.acosh,
+    arctanh: math.atanh,
+    arccsch: math.acsch,
+    arcsech: math.asech,
+    arccoth: math.acoth,
+
+    // Inverse trig functions
+    csc: math.csc,
+    sec: math.sec,
+    cot: math.cot,
+
+    // Hyperbolic trig functions
+    sinh: math.sinh,
+    cosh: math.cosh,
+    tanh: math.tanh,
+    csch: math.csch,
+    sech: math.sech,
+    coth: math.coth,
+
+    // Logarithmic functions
+    log: math.log10,
+    ln: math.log,
+  };
 
   function getData(val) {
     setData(val.target.value);
     setPrint(true);
   }
 
-  function getAnswer() {
-    console.log(mathData);
+  function getAnswer(data) {
+    console.log(data);
     try {
       if (question.answer2 != null) {
         if (
           latex === question.answer ||
-          Math.round(mathData * 1000000) / 1000000 === question.answer2
+          Math.round(data * 1000000) / 1000000 === question.answer2
         ) {
           setBadSnack(false);
           setWarning(false);

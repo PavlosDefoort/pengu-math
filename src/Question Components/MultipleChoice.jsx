@@ -260,14 +260,16 @@ export default function SelectSmall({
                 "Attempted: " + (localStorage.getItem(question.attempts) ?? 0)
               }
             >
-              <Button
-                variant="contained"
-                sx={buttonSx}
-                disabled={loading}
-                onClick={handleButtonClick}
-              >
-                SUBMIT
-              </Button>
+              <span>
+                <Button
+                  variant="contained"
+                  sx={buttonSx}
+                  disabled={loading}
+                  onClick={handleButtonClick}
+                >
+                  SUBMIT
+                </Button>
+              </span>
             </Tooltip>
             {circular && (
               <CircularProgress

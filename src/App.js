@@ -26,6 +26,8 @@ import Tests from "./data/Tests/tests.json";
 
 import Error404 from "./Error Pages/404";
 import CalculusTwoTestOne from "./data/Tests/Modules/CalculusTwoTestOne";
+import LiveMath from "./LiveMath";
+
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
