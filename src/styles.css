@@ -342,8 +342,8 @@ body {
   font-weight: normal !important;
   margin: auto;
   justify-content: center;
-  width: 35%;
-  padding-bottom: 1rem;
+  width: 100%;
+
   overflow: auto;
 }
 
@@ -354,6 +354,7 @@ body {
   src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
   font-size: medium;
   display: flex;
+
   margin: auto;
   justify-content: center;
   width: 100%;

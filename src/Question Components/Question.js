@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import pogChilds from "./pogChilds";
 
 import Button from "@mui/material/Button";
 import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-
+import FormControl from "@mui/material/FormControl";
 import { create, all, evaluate, compare, e } from "mathjs";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
@@ -20,6 +20,7 @@ import newChilds from "./newChilds";
 import { Parser } from "@cortex-js/compute-engine";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import LiveMath from "../LiveMath";
+import { width } from "@mui/system";
 var Latex = require("react-latex");
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -262,13 +263,7 @@ function Question({
         <Latex>{question.question}</Latex>
       </h1>
       <div className="">
-        <div className="userInput">
-          <LiveMath
-            mathData={mathData}
-            setMathData={handleMathData}
-            onSubmit={handleSubmit}
-          />
-          {/*  
+        {/*  
           <EditableMathField
             latex={latex}
             onChange={(mathField) => {
@@ -277,7 +272,6 @@ function Question({
               // Additional function call goes here...
             }}
           />*/}
-        </div>
 
         {showAnswer ? (
           <h4 className="solution">
@@ -314,8 +308,6 @@ function Question({
           </h4>
         ) : null}
         <h1 className="prettyInput">
-          <div></div>
-
           {/* 
 
           <Tooltip title="Enter your answer here">
@@ -326,6 +318,16 @@ function Question({
               disabled={buttonBool}
             ></TextField>
           </Tooltip> */}
+          <FormControl sx={{ m: 1, minWidth: 300 }} size="small">
+            <div className="userInput">
+              <LiveMath
+                mathData={mathData}
+                setMathData={handleMathData}
+                onSubmit={handleSubmit}
+              />
+            </div>
+          </FormControl>
+
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box sx={{ m: 1, position: "relative" }}>
               <Tooltip

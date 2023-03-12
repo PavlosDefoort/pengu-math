@@ -52,6 +52,10 @@
         {
           "name": "Discrete Math Test 1",
           "link": "/discrete-math/test1"
+        },
+        {
+          "name": "Grade 12 Vectors",
+          "link": "/grade-12/vectors/test1"
         }
       ]
     },
@@ -104,7 +108,7 @@
       "menu": [
         {
           "name": "Patch Notes",
-          "link": "/under-construction"
+          "link": "/status/patch-notes"
         },
         {
           "name": "What's Next",

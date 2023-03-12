@@ -16,6 +16,16 @@
   height: 100vh;
 }
 
+.containerlol3 {
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+  background-color: rgb(68, 208, 255);
+  height: 100vh;
+  color: whitesmoke;
+}
+
 .img {
   float: left;
   margin-left: 20px;

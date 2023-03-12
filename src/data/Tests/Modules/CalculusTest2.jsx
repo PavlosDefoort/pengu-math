@@ -14,6 +14,28 @@ import MultipleChoice from "../../../Question Components/MultipleChoice";
 import LimitExplanation from "../../../LimitExplanation";
 
 export default function CalculusTestTwo({ info }) {
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+
+  useEffect(() => {
+    const savedQuestions = localStorage.getItem("quizQuestions");
+    if (savedQuestions) {
+      setShuffledQuestions(JSON.parse(savedQuestions));
+    } else {
+      const shuffledData = shuffleQuizData(info.questions);
+      const selectedQuestions = shuffledData.slice(0, 5);
+      setShuffledQuestions(selectedQuestions);
+      localStorage.setItem("quizQuestions", JSON.stringify(selectedQuestions));
+    }
+  }, []);
+
+  function shuffleQuizData(data) {
+    for (let i = data.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [data[i], data[j]] = [data[j], data[i]];
+    }
+    return data;
+  }
+
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem(info.storage) || 0)
   );
@@ -41,6 +63,8 @@ export default function CalculusTestTwo({ info }) {
         }
       }
     }
+    localStorage.removeItem("quizQuestions");
+    setShuffledQuestions([]);
     window.location.reload();
   };
 
@@ -72,7 +96,7 @@ export default function CalculusTestTwo({ info }) {
             </Typography>
           </h1>
 
-          {info.questions.map((question) => {
+          {shuffledQuestions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (

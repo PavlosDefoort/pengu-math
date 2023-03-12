@@ -14,6 +14,30 @@ import MultipleChoice from "../../../Question Components/MultipleChoice";
 import LimitExplanation from "../../../LimitExplanation";
 
 export default function LinearAlgebraTestOne({ info }) {
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+
+  useEffect(() => {
+    const savedQuestions = localStorage.getItem("linearalgebratest1Questions");
+    if (savedQuestions) {
+      setShuffledQuestions(JSON.parse(savedQuestions));
+    } else {
+      const shuffledData = shuffleQuizData(info.questions);
+      const selectedQuestions = shuffledData.slice(0, 8);
+      setShuffledQuestions(selectedQuestions);
+      localStorage.setItem(
+        "linearalgebratest1Questions",
+        JSON.stringify(selectedQuestions)
+      );
+    }
+  }, []);
+
+  function shuffleQuizData(data) {
+    for (let i = data.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [data[i], data[j]] = [data[j], data[i]];
+    }
+    return data;
+  }
   const [score, setScore] = useState(
     parseFloat(localStorage.getItem(info.storage) || 0)
   );
@@ -41,6 +65,8 @@ export default function LinearAlgebraTestOne({ info }) {
         }
       }
     }
+    localStorage.removeItem("linearalgebratest1Questions");
+    setShuffledQuestions([]);
     window.location.reload();
   };
 
@@ -72,7 +98,7 @@ export default function LinearAlgebraTestOne({ info }) {
             </Typography>
           </h1>
 
-          {info.questions.map((question) => {
+          {shuffledQuestions.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (

@@ -27,6 +27,8 @@ import Tests from "./data/Tests/tests.json";
 import Error404 from "./Error Pages/404";
 import CalculusTwoTestOne from "./data/Tests/Modules/CalculusTwoTestOne";
 import LiveMath from "./LiveMath";
+import ScrollToTop from "./ScrollTo";
+import PatchNotes from "./PatchNotes";
 
 const darkTheme = createTheme({
   palette: {
@@ -50,7 +52,6 @@ export default function App() {
   return (
     <div>
       <NewBar />
-
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -87,6 +88,8 @@ export default function App() {
         />
 
         <Route path="/practice" element={<Practice info={PracticeTest} />} />
+
+        <Route path="/status/patch-notes" element={<PatchNotes />} />
 
         <Route path="/under-construction" element={<Construction />} />
         <Route path="*" element={<Error404 />} />

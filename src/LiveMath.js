@@ -36,7 +36,6 @@ const MathLiveKeyboard = ({ mathData, setMathData, setModal, onSubmit }) => {
     const mathField = document.getElementById(id);
     if (mathField) {
       mathField.setOptions(options);
-      ref.current.focus();
     }
   }, [id]);
 
