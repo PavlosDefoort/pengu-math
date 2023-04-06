@@ -21,8 +21,10 @@ import { Parser } from "@cortex-js/compute-engine";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import LiveMath from "../LiveMath";
 import { width } from "@mui/system";
-var Latex = require("react-latex");
 
+import { InlineMath, BlockMath } from "react-katex";
+
+var Latex = require("react-latex");
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -260,7 +262,9 @@ function Question({
       </h7>
 
       <h1 className={question.css}>
-        <Latex>{question.question}</Latex>
+        <BlockMath math={question.question} />
+        {/*  
+        <Latex>{question.question}</Latex>*/}
       </h1>
       <div className="">
         {/*  
@@ -276,8 +280,7 @@ function Question({
         {showAnswer ? (
           <h4 className="solution">
             <Typography variant="h6">
-              Answer:
-              <Latex>{" " + question.solution}</Latex>
+              Answer: <InlineMath math={question.solution} />
               <h4 className="explanationButton">
                 <Explanation />
               </h4>
@@ -288,8 +291,7 @@ function Question({
         {showCorrect ? (
           <h4 className="correct">
             <Typography variant="h6">
-              Answer:
-              <Latex>{" " + question.solution}</Latex>
+              Answer: <InlineMath math={question.solution} />
               <h4 className="explanationButton">
                 <Explanation />
               </h4>
@@ -304,7 +306,8 @@ function Question({
 
         {incorrect ? (
           <h4 className="incorrect">
-            <Latex>{"$" + "Incorrect!" + "$"}</Latex>
+            {/*  
+            <Latex>{"$" + "Incorrect!" + "$"}</Latex>*/}
           </h4>
         ) : null}
         <h1 className="prettyInput">

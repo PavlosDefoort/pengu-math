@@ -13,11 +13,11 @@ import Progress from "../../../Question Components/Progress";
 import MultipleChoice from "../../../Question Components/MultipleChoice";
 import LimitExplanation from "../../../LimitExplanation";
 
-export default function CalculusTestTwo({ info }) {
+export default function CalculusTwoTestTwo({ info }) {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
   useEffect(() => {
-    const savedQuestions = localStorage.getItem("calculus1test2Questions");
+    const savedQuestions = localStorage.getItem("calculustwotest2Questions");
     if (savedQuestions) {
       setShuffledQuestions(JSON.parse(savedQuestions));
     } else {
@@ -25,7 +25,7 @@ export default function CalculusTestTwo({ info }) {
       const selectedQuestions = shuffledData.slice(0, 5);
       setShuffledQuestions(selectedQuestions);
       localStorage.setItem(
-        "calculus1test2Questions",
+        "calculustwotest2Questions",
         JSON.stringify(selectedQuestions)
       );
     }
@@ -66,7 +66,7 @@ export default function CalculusTestTwo({ info }) {
         }
       }
     }
-    localStorage.removeItem("calculus1test2Questions");
+    localStorage.removeItem("calculustwotest2Questions");
     setShuffledQuestions([]);
     window.location.reload();
   };

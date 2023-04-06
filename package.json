@@ -26,6 +26,7 @@
     "react-hook-form": "^7.43.0",
     "react-intersection-observer": "^9.4.3",
     "react-jss": "^10.10.0",
+    "react-katex": "^3.0.1",
     "react-latex": "^2.0.0",
     "react-mathquill": "^1.0.2",
     "react-pdf": "^6.2.2",

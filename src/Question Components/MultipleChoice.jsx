@@ -12,6 +12,7 @@ import { Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { InlineMath, BlockMath } from "react-katex";
 
 var Latex = require("react-latex");
 
@@ -122,7 +123,7 @@ export default function SelectSmall({
   }
 
   function getAnswer() {
-    console.log(userAnswer);
+    // console.log(userAnswer);
     if (userAnswer == question.answer) {
       setBadSnack(false);
       setWarning(false);
@@ -176,7 +177,7 @@ export default function SelectSmall({
       </div>
 
       <h1 className={"prettyLatex"}>
-        <Latex>{question.question}</Latex>
+        <BlockMath math={question.question} />
         <div>
           <img src={question.image} />
         </div>
@@ -185,39 +186,38 @@ export default function SelectSmall({
         <li className="eachChoice">
           <span className="choiceLetter">A.</span>
           <span className="choiceText">
-            <Latex>{question.A}</Latex>
+            <BlockMath math={question.A} />
           </span>
         </li>
         <li className="eachChoice">
           <span className="choiceLetter">B.</span>
           <span className="choiceText">
-            <Latex>{question.B}</Latex>
+            <BlockMath math={question.B} />
           </span>
         </li>
         <li className="eachChoice">
           <span className="choiceLetter">C.</span>
           <span className="choiceText">
-            <Latex>{question.C}</Latex>
+            <BlockMath math={question.C} />
           </span>
         </li>
         <li className="eachChoice">
           <span className="choiceLetter">D.</span>
           <span className="choiceText">
-            <Latex>{question.D}</Latex>
+            <BlockMath math={question.D} />
           </span>
         </li>
         <li className="eachChoice">
           <span className="choiceLetter">E.</span>
           <span className="choiceText">
-            <Latex>{question.E}</Latex>
+            <BlockMath math={question.E} />
           </span>
         </li>
       </ul>
       {showAnswer ? (
         <h4 className="solution">
           <Typography variant="h6">
-            Answer:
-            <Latex>{" " + question.solution}</Latex>
+            Answer: <InlineMath math={question.solution} />
             <h4 className="explanationButton">
               <Explanation />
             </h4>
@@ -227,8 +227,7 @@ export default function SelectSmall({
       {showCorrect ? (
         <h4 className="correct">
           <Typography variant="h6">
-            Answer:
-            <Latex>{" " + question.solution}</Latex>
+            Answer: <InlineMath math={question.solution} />
             <h4 className="explanationButton">
               <Explanation />
             </h4>

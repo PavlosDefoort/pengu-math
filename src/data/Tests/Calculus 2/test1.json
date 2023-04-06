@@ -6,6 +6,11 @@
   "topics": "Series, comparision theorem",
 
   "points": "7.69",
+
+  "path": "/calculus/calculus-2/test1",
+
+  "id": 2,
+
   "questions": [
     {
       "question": "$\\int_{-\\infty}^{\\infty} \\frac{1}{\\sqrt{x^{2}+4}}dx$",
