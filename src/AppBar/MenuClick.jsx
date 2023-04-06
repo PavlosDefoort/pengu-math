@@ -13,9 +13,11 @@ export default function FadeMenu({ button }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
+    console.log("entering!");
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    console.log("leaving...");
     setAnchorEl(null);
   };
 
@@ -36,6 +38,7 @@ export default function FadeMenu({ button }) {
               key={button.name}
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
+              onMouseOver={handleClick}
               sx={{ my: 1, color: "white", display: "block" }}
             >
               {button.name}
@@ -55,7 +58,15 @@ export default function FadeMenu({ button }) {
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            TransitionComponent={Fade}
+            disableAutoFocus
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
           >
             {button.menu.map((slida) => (
               <MenuItem onClick={handleNewQuiz}>
