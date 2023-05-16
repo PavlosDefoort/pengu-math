@@ -87,6 +87,36 @@ function Question({
     }
   }
 
+  function answerLogic() {
+    const userAnswer = 30;
+    const correctAnswer = question.answer;
+    let isCorrect = false;
+    let attemptsLeft = 3;
+
+    if (userAnswer == correctAnswer) {
+      isCorrect = true;
+    } else {
+      attemptsLeft--;
+      if (attemptsLeft == 0) {
+        isCorrect = false;
+      }
+    }
+
+    if (isCorrect) {
+      setShowCorrect(true);
+      setLoading(true);
+      // show correct answer in green
+    } else {
+      if (attemptsLeft == 0) {
+        setShow(true);
+        setLoading(true);
+        // show correct answer in red
+      } else {
+        // show attempts left
+      }
+    }
+  }
+
   React.useEffect(() => {
     // Retrieve the value from local storage
     const storedValue = localStorage.getItem(question.submission);

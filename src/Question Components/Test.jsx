@@ -4,7 +4,7 @@ import "../styles.css";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
-import { Button } from "@mui/material";
+import { Button, selectClasses } from "@mui/material";
 import Box from "@mui/system/Box";
 import "@fontsource/roboto/300.css";
 import Fab from "@mui/material/Fab";
@@ -12,22 +12,92 @@ import Progress from "./Progress";
 import MultipleChoice from "./MultipleChoice";
 import LimitExplanation from "../LimitExplanation";
 import Tooltip from "@mui/material/Tooltip";
+import {
+  updateUserQuizzesDocument,
+  getScores,
+  updateStatus,
+  generateId,
+} from "../Firebase/firebase";
 
 export default function CalculusTestTwo({ info }) {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [displayQuestion, setDisplayQuestion] = useState([]);
+  const [fetchedScores, setFetchedScores] = useState([]);
+  const [currentTest, setCurrentTest] = useState(null);
+  const [score, setScore] = useState(0);
+
+  const explanationDict = {
+    LimitExplanation: LimitExplanation,
+  };
+
+  function createTest() {
+    const timestamp = new Date();
+    const test = {
+      name: info.title,
+      startTime: timestamp,
+      questions: shuffledQuestions,
+      complete: false,
+      active: true,
+      testID: generateId(),
+    };
+
+    return test;
+  }
 
   useEffect(() => {
-    const savedQuestions = localStorage.getItem(info.bank);
-    if (savedQuestions) {
-      setShuffledQuestions(JSON.parse(savedQuestions));
-    } else {
+    const fetchScores = async () => {
+      try {
+        const fireTests = await getScores();
+        setFetchedScores(fireTests);
+
+        // Check if there is an active test
+        const activeTest = fireTests.find(
+          (test) => test.active && test.name === info.title
+        );
+
+        if (!activeTest) {
+          await updateUserQuizzesDocument(shuffledQuestions, info);
+          const questionArray = await getScores();
+          const activeTest = questionArray.find(
+            (test) => test.active && test.name === info.title
+          );
+          console.log(activeTest);
+
+          setDisplayQuestion(shuffledQuestions);
+          setCurrentTest(activeTest);
+        } else {
+          setDisplayQuestion(activeTest.questions);
+          setCurrentTest(activeTest);
+        }
+      } catch (error) {
+        updateUserQuizzesDocument(shuffledQuestions, info);
+      }
+    };
+
+    // Fetch the quizzes and update the fetchedScores state
+    if (shuffledQuestions.length > 0) {
+      fetchScores();
+    }
+  }, [shuffledQuestions]);
+
+  useEffect(() => {
+    const createShuffledQuestion = () => {
+      // shuffle the questions
       const shuffledData = shuffleQuizData(info.questions, 3);
+      // select the first 20 questions
       const selectedQuestions = shuffledData.slice(0, 20);
+
+      // set the state to the selected questions
       setShuffledQuestions(selectedQuestions);
-      localStorage.setItem(info.bank, JSON.stringify(selectedQuestions));
+    };
+
+    // If shuffledQuestions is empty, create a new set of questions
+    if (shuffledQuestions.length === 0) {
+      createShuffledQuestion();
     }
   }, []);
 
+  // function to shuffle the questions
   function shuffleQuizData(data, numQuestionsPerTopic) {
     const questionDict = {};
     data.forEach((question) => {
@@ -37,6 +107,7 @@ export default function CalculusTestTwo({ info }) {
       }
       questionDict[topic].push(question);
     });
+    //Fisher Yates Shuffle
     const selectedQuestions = [];
     Object.values(questionDict).forEach((questions) => {
       const numQuestions = Math.min(numQuestionsPerTopic, questions.length);
@@ -56,35 +127,10 @@ export default function CalculusTestTwo({ info }) {
     return selectedQuestions;
   }
 
-  const [score, setScore] = useState(
-    parseFloat(localStorage.getItem(info.storage) || 0)
-  );
-
-  const explanationDict = {
-    LimitExplanation: LimitExplanation,
-  };
-
-  useEffect(() => {
-    setScore(0);
-  }, []);
-
-  const handleButtonClick = () => {
-    localStorage.removeItem(info.storage);
-    for (const dict of info.questions) {
-      for (const key in dict) {
-        if (key === "buttonName") {
-          localStorage.removeItem(dict[key]);
-        }
-        if (key === "submission") {
-          localStorage.removeItem(dict[key]);
-        }
-        if (key === "attempts") {
-          localStorage.removeItem(dict[key]);
-        }
-      }
-    }
-    localStorage.removeItem(info.bank);
-    setShuffledQuestions([]);
+  const handleButtonClick = async () => {
+    // Reset the score
+    console.log(currentTest);
+    await updateStatus(currentTest.testID);
     window.location.reload();
   };
 
@@ -116,7 +162,7 @@ export default function CalculusTestTwo({ info }) {
             </Typography>
           </h1>
 
-          {shuffledQuestions.map((question) => {
+          {displayQuestion.map((question) => {
             // Check if the question is multiple choice or short answer
             if (question.type === "multiplechoice") {
               return (

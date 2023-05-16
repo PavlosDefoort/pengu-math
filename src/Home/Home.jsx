@@ -14,11 +14,15 @@ import Box from "@mui/system/Box";
 import { color } from "@mui/system";
 import { blue } from "@mui/material/colors";
 import { Css, CssOutlined, CssRounded, CssSharp } from "@mui/icons-material";
-
+import { auth, signInWithGoogle, firestore } from "../Firebase/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+import { Button } from "@mui/material";
 import * as React from "react";
 import styles1 from "../styles.css";
 
 export default function Home() {
+  const [user] = useAuthState(auth);
   const [checked, setChecked] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const containerRef = useRef(null);
@@ -40,6 +44,11 @@ export default function Home() {
   useEffect(() => {
     setChecked(true);
   }, []);
+
+  function SignIn() {
+    return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+  }
+
   return (
     <div className={styles1.container}>
       <CssBaseline />
@@ -64,6 +73,9 @@ export default function Home() {
                 knowledge on a variety of subjects.{" "}
               </h3>
             </div>
+            <Button variant="contained" onClick={signInWithGoogle}>
+              Get Started!
+            </Button>
           </div>
         </Grow>
         <img
@@ -73,8 +85,7 @@ export default function Home() {
         ></img>
       </div>
 
-      {/* 
-
+      {/*  
       <div className="secondBackground" style={{ overflow: "hidden" }}>
         <div style={{ height: "100px" }}>
           <div

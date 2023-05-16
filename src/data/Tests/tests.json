@@ -152,6 +152,150 @@
       ]
     },
     {
+      "title": "Calculus I: Test 1",
+      "storage": "CalculusITest1",
+      "topics": "Trigonomic identities, limits, continuity, derivatives, implicit differentiation, and related rates",
+      "points": "9.09",
+      "id": 1,
+      "bank": "CalculusOneTestOneQuestions",
+      "path": "/calculus/calculus-1/test1",
+      "component": "LinearAlgebraTestOne",
+      "questions": [
+        {
+          "question": "\\tan\\left(x\\right)\\sin\\left(2x\\right)",
+          "attempts": "calc1t1attempt1",
+          "answer": 10,
+          "answer2": 10,
+          "correct": false,
+          "attemptsLeft": 3,
+          "prompt": "Which of the following equal the given trigonometric expression?",
+          "extra": "",
+          "solution": "\\frac{2}{1+\\cot^{2}\\left(x\\right)}",
+          "buttonName": "calc1t1b1",
+          "submission": "calc1t1s1",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "\\frac{2}{1+\\cot^{2}\\left(x\\right)}",
+          "B": "{1+\\cot^{2}\\left(x\\right)}",
+          "C": "1+\\cos \\left(2x\\right)",
+          "D": "2\\left(1-\\sin ^2\\left(x\\right)\\right)",
+          "E": "\\sec \\left(2x\\right)-\\tan \\left(2x\\right)\\:+\\:1",
+          "explanation": "LimitExplanation",
+          "topic": "trig identities"
+        },
+        {
+          "question": "\\sin ^2\\left(2x\\right)+\\cos ^2\\left(2x\\right)",
+          "attempts": "calc1t1attempt2",
+          "answer": 50,
+          "answer2": 50,
+          "prompt": "Which of the following equal the given trigonometric expression?",
+          "extra": "",
+          "solution": "\\sin ^2\\left(x\\right)+\\cos ^2\\left(x\\right)",
+          "buttonName": "calc1t1b2",
+          "submission": "calc1t1s2",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "\\left(\\sin \\:\\left(x\\right)+\\cos \\:\\left(x\\right)\\right)^2",
+          "B": "\\frac{\\tan ^2\\left(2x\\right)}{\\csc ^2\\left(2x\\right)}",
+          "C": "2",
+          "D": "2\\left(1-\\sin ^2\\left(x\\right)\\right)",
+          "E": "\\sin ^2\\left(x\\right)+\\cos ^2\\left(x\\right)",
+          "explanation": "LimitExplanation",
+          "topic": "trig identities"
+        },
+        {
+          "question": "\\tan \\left(x\\right)=-\\frac{1}{\\sqrt{3}}\\:,\\:\\left[-\\pi ,\\:0\\right]",
+          "attempts": "calc1t1attempt3",
+          "answer": "-\\frac{\\pi}{6}",
+          "answer2": -0.523599,
+          "prompt": "Find the solution to the equation on the given interval",
+          "extra": "Enter your answer symbolically",
+          "solution": "-\\frac{\\pi}{6}",
+          "buttonName": "calc1t1b3",
+          "submission": "calc1t1s3",
+          "css": "prettyLatex",
+          "type": "shortanswer",
+          "explanation": "LimitExplanation",
+          "topic": "trig solutions"
+        },
+        {
+          "question": "\\csc \\left(x\\right)=\\sqrt{2}\\:,\\:\\left[2\\pi ,\\:\\frac{5\\pi }{2}\\right]",
+          "attempts": "calc1t1attempt4",
+          "answer": "\\frac{9\\pi}{4}",
+          "answer2": 7.068583,
+          "prompt": "Find the solution to the equation on the given interval",
+          "extra": "Enter your answer symbolically",
+          "solution": "\\frac{9\\pi}{4}",
+          "buttonName": "calc1t1b4",
+          "submission": "calc1t1s4",
+          "css": "prettyLatex",
+          "type": "shortanswer",
+          "explanation": "LimitExplanation",
+          "topic": "trig solutions"
+        },
+        {
+          "question": "f\\left(x\\right)=-\\sqrt{\\ln \\left(\\frac{x^2}{2}\\right)}",
+          "attempts": "calc1t1attempt5",
+          "answer": 50,
+          "answer2": 50,
+          "prompt": "Find the domain of the following function.",
+          "extra": "",
+          "solution": "\\sin ^2\\left(x\\right)+\\cos ^2\\left(x\\right)",
+          "buttonName": "calc1t1b5",
+          "submission": "calc1t1s5",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "\\left(\\sin \\:\\left(x\\right)+\\cos \\:\\left(x\\right)\\right)^2",
+          "B": "\\frac{\\tan ^2\\left(2x\\right)}{\\csc ^2\\left(2x\\right)}",
+          "C": "2",
+          "D": "2\\left(1-\\sin ^2\\left(x\\right)\\right)",
+          "E": "\\sin ^2\\left(x\\right)+\\cos ^2\\left(x\\right)",
+          "explanation": "LimitExplanation",
+          "topic": "domain"
+        },
+        {
+          "question": "f\\left(x\\right)=\\frac{1}{x^{2}-16}",
+          "attempts": "calc1t1attempt6",
+          "answer": 40,
+          "answer2": 40,
+          "prompt": "Find the domain of the following function.",
+          "extra": "",
+          "solution": "x<-4,\\:-4<x<4,\\:x>4",
+          "buttonName": "calc1t1b6",
+          "submission": "calc1t1s6",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "x\\leq-4,\\:-4<x<4,\\:x\\geq4",
+          "B": "x\\leq-4,\\:x\\geq4",
+          "C": "x\\in \\mathbb{R}",
+          "D": "x<-4,\\:-4<x<4,\\:x>4",
+          "E": "x\\in \\mathbb{R}-\\{16\\}",
+          "explanation": "LimitExplanation",
+          "topic": "domain"
+        },
+        {
+          "question": "f\\left(x\\right)=\\frac{1}{x^{2}-16}",
+          "attempts": "calc1t1attempt7",
+          "answer": 40,
+          "answer2": 40,
+          "prompt": "Find the first derivative of the following function.",
+          "extra": "",
+          "solution": "x<-4,\\:-4<x<4,\\:x>4",
+          "buttonName": "calc1t1b7",
+          "submission": "calc1t1s7",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "x\\leq-4,\\:-4<x<4,\\:x\\geq4",
+          "B": "x\\leq-4,\\:x\\geq4",
+          "C": "x\\in \\mathbb{R}",
+          "D": "x<-4,\\:-4<x<4,\\:x>4",
+          "E": "x\\in \\mathbb{R}-\\{16\\}",
+          "explanation": "LimitExplanation",
+          "topic": "derivative"
+        }
+      ]
+    },
+    {
       "title": "Calculus I: Test 2",
 
       "storage": "CalculusITest2",
@@ -160,7 +304,7 @@
 
       "points": "9.09",
 
-      "id": 1,
+      "id": 2,
 
       "bank": "CalculusOneTestTwoQuestions",
 
@@ -381,7 +525,7 @@
 
       "path": "/calculus/calculus-2/test1",
 
-      "id": 2,
+      "id": 3,
 
       "questions": [
         {
@@ -568,7 +712,7 @@
 
       "path": "/grade-12/vectors/test1",
 
-      "id": 3,
+      "id": 4,
       "questions": [
         {
           "question": "",
@@ -675,7 +819,7 @@
 
       "bank": "DiscreteMathTestOneQuestions",
 
-      "id": 4,
+      "id": 5,
 
       "topics": "Propositions, propositoinal logic, propositional functions, logical equivalance, quantified statements, set theory, rules of inference",
 
@@ -839,7 +983,7 @@
 
       "bank": "CalculusTwoTestTwoQuestions",
 
-      "id": 5,
+      "id": 6,
 
       "points": "4.761",
 
@@ -971,6 +1115,43 @@
           "E": "\\scriptsize{48720 \\text{ years; No conclusions can be made}}",
           "explanation": "LimitExplanation",
           "topic": "exponential"
+        }
+      ]
+    },
+    {
+      "title": "Calculus II: Exam",
+
+      "path": "/calculus/calculus-2/exam",
+
+      "storage": "CalculusIIExam",
+
+      "topics": "",
+
+      "bank": "CalculusTwoExamQuestions",
+
+      "id": 7,
+
+      "points": "4.761",
+
+      "questions": [
+        {
+          "question": "",
+          "attempts": "calc2t2attempt2",
+          "answer": 40,
+          "prompt": "Evaluate the following definite integral",
+          "extra": "",
+          "solution": "1-\\frac{x}{4}-\\sum_{n=2}^{\\infty} \\frac{3\\cdot7\\cdot11\\cdot \\dots (4n-5) x^{n}}{4^{n}n!},\\, R= 1",
+          "buttonName": "calc2t2b2",
+          "submission": "calc2t2b2",
+          "css": "prettyLatex",
+          "type": "multiplechoice",
+          "A": "1-\\frac{x}{4}-\\sum_{n=2}^{\\infty} \\frac{3\\cdot7\\cdot11\\cdot \\dots (4n-5) x^{n}}{4^{n}n!},\\, R = 2",
+          "B": "1-\\frac{x}{4}-\\sum_{n=2}^{\\infty} \\frac{1\\cdot3\\cdot5\\cdot \\dots (4n-5) x^{n}}{4^{n}n!},\\, R=\\infty",
+          "C": "\\sum_{n=2}^{\\infty} \\frac{x^{n}}{n!},\\, R=0",
+          "D": "1-\\frac{x}{4}-\\sum_{n=2}^{\\infty} \\frac{3\\cdot7\\cdot11\\cdot \\dots (4n-5) x^{n}}{4^{n}n!},\\, R= 1",
+          "E": "\\sum_{n=2}^{\\infty} \\frac{3\\cdot7\\cdot11\\cdot \\dots (4n-4) x^{n}}{4^{n}n!},\\, R = 1",
+          "explanation": "LimitExplanation",
+          "topic": "infinite integration"
         }
       ]
     }

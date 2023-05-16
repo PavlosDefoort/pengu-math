@@ -295,8 +295,6 @@ body {
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
 }
 
 .solution {
@@ -308,8 +306,6 @@ body {
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
 }
 
 .incorrect {
@@ -332,7 +328,6 @@ body {
   border: 0.05rem;
   border-style: dotted;
   border-color: black;
-  margin-bottom: 10rem;
 }
 .userInput {
   /* position: relative; */
@@ -354,7 +349,6 @@ body {
   src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
   font-size: medium;
   display: flex;
-
   margin: auto;
   justify-content: center;
   width: 100%;
@@ -409,8 +403,6 @@ body {
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 3rem;
-  padding-top: 2rem;
 }
 
 .goInTheCenter {
@@ -437,7 +429,7 @@ body {
   border-radius: 2rem;
   border-style: dotted;
   border-color: black;
-  margin-bottom: 10rem;
+  margin-bottom: 7.5rem;
   word-break: break-word;
   white-space: "pre-wrap";
   overflow: auto;
@@ -447,10 +439,9 @@ body {
   /* top: -15px; */
   /* position: relative; */
   display: inline-block;
-  font-size: 1.2rem !important;
+  font-size: 1.25rem !important;
   font-family: "Computer Modern ";
   src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
-  padding: 10px;
 
   font-weight: lighter;
   line-height: 1.4;
@@ -458,18 +449,17 @@ body {
 }
 
 .multiplechoice {
-  font-size: 1.5rem !important;
+  font-size: 1.4rem !important;
   font-family: "Computer Modern ";
   src: url("http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf");
   list-style-type: none;
-  margin-bottom: 4rem;
+
   margin-left: 1.1rem;
 }
 
 .eachChoice {
   display: flex;
   align-items: center;
-  margin-bottom: 2.2rem;
 }
 
 .choiceLetter {
@@ -494,7 +484,7 @@ body {
   margin: auto;
   justify-content: center;
   width: 100%;
-  padding-bottom: 0.5rem;
-  margin-top: 1rem;
+
+  margin-top: 0.5rem;
   font-weight: bolder;
 }
